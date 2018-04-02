@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyVersion>18.0.0.0</AssemblyVersion>
+    <FileVersion>18.0.1804.92</FileVersion>
+  </PropertyGroup>
+
+</Project>
