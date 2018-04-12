@@ -18,6 +18,7 @@ namespace ConvertitoreMisure
             lbl.Location = Coordinate;
             lbl.Size = Dimensioni;
             lbl.Anchor = 0;
+            lbl.Enabled = false;
 
             return lbl;
         }
@@ -34,6 +35,7 @@ namespace ConvertitoreMisure
             TxtB.Location = Coordinate;
             TxtB.Size = Dimensioni;
             TxtB.Anchor = 0;
+            TxtB.Enabled = false;
 
             return TxtB;
         }

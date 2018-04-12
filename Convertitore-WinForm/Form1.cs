@@ -7,12 +7,16 @@ namespace ConvertitoreMisure
 {
     public partial class Form1 : Form
     {
+        /*
         private double temperatura;
         private string UnitTempIn;
         private string contenuto;
         private double[] result;
-        private int i;
-
+        
+        */
+        private int i = 0;
+        private int selected = 0;
+        IMisure ObjMisure;
 
 
         public Form1()
@@ -20,44 +24,117 @@ namespace ConvertitoreMisure
             InitializeComponent();
         }
 
-        private void LoadingForm(object sender, EventArgs e)
+
+        private void CmbSelMisure1_IndexChanged(object sender, EventArgs e)
         {
-            #region panelInput
-            int i = 0;
+            selected = CmbSelMisure.SelectedIndex;
+            ObjMisure = Scelta(selected);
+            ComboBoxInT.Items.Clear();
 
-            // Inizializa la ComboBox per la lista delle Temperature
-            ComboBoxInT.Items.AddRange(Temperature.NameUnitTemp);
-            #endregion
+            ComboBoxInT.Items.AddRange(ObjMisure.NameUnitTemp);
+            ComboBoxInT.Text = ObjMisure.NameUnitTemp[0].ToString();
 
-            #region panelOutput
-            Point inizioLbl1 = new System.Drawing.Point(1, 50);
+            EnabeControl();
+
+            lblValueMisura.Text = "Valore " + CmbSelMisure.Text.ToString();
+            ScriviLblConversione();
+
+
+            SvuotaPanel();
+            InizializzaPanel2();
+        }
+
+        private void EnabeControl()
+        {
+            panelInput.Enabled = true;
+            foreach (Control item in panelInput.Controls)
+            {
+                item.Enabled = true;
+
+            }
+        }
+
+        private void ScriviLblConversione()
+        {
+            LblConversione.Text = valueInput.Text.ToString() + " " +
+                ObjMisure.SimbolUnitTemp[ComboBoxInT.SelectedIndex].ToString();
+        }
+
+        public IMisure Scelta(int val)
+        {
+            switch (val)
+            {
+                case 0:
+                    return new Temperature();
+                case 1:
+                    return new Pressione();
+                default:
+                    // return new Dist(); ;
+                    return null;
+            }
+        }
+
+
+
+
+
+
+        void InizializzaPanel2()
+        {
+
+            Point inizioLbl1 = new Point(1, 32);
             Size SizeControlLbl1 = new Size(105, 26);
 
-            Point inizioTxtB = new Point(110, 50);
+            Point inizioTxtB = new Point(110, 32);
             Size SizeControlTxtB = new Size(140, 26);
 
-            Point inizioLbl2 = new Point(250, 51);
+            Point inizioLbl2 = new Point(250, 32);
             Size SizeControlLbl2 = new Size(40, 26);
-
-            for (int ii = 0; ii < 8; ii++)
+            for (int ii = 0; ii < ObjMisure.SimbolUnitTemp.Length; ii++)
             {
-                string NameControlLbl1 = "lbl" + i.ToString() + Temperature.NameUnitTemp[ii];
-                string NameControlTxt = "lbl" + i.ToString() + Temperature.NameUnitTemp[ii];
-                string NameControlLbl2 = "lbl" + i.ToString() + Temperature.SimbolUnitTemp[ii];
+                string NameControlLbl1 = "lbl" + i.ToString() + ObjMisure.NameUnitTemp[ii];
+                string NameControlTxt = "lbl" + i.ToString() + ObjMisure.NameUnitTemp[ii];
+                string NameControlLbl2 = "lbl" + i.ToString() + ObjMisure.SimbolUnitTemp[ii];
 
-
-                Label lbl1 = AddLabel(NameControlLbl1, inizioLbl1, SizeControlLbl1, Temperature.NameUnitTemp[ii], ContentAlignment.MiddleRight);
+                Label lbl1 = AddLabel(NameControlLbl1, inizioLbl1, SizeControlLbl1, ObjMisure.NameUnitTemp[ii], ContentAlignment.MiddleRight);
                 TextBox tex = AddTextBox(NameControlTxt, inizioTxtB, SizeControlTxtB, "");
-                Label lbl2 = AddLabel(NameControlLbl2, inizioLbl2, SizeControlLbl2, Temperature.SimbolUnitTemp[ii], ContentAlignment.MiddleLeft);
+                Label lbl2 = AddLabel(NameControlLbl2, inizioLbl2, SizeControlLbl2, ObjMisure.SimbolUnitTemp[ii], ContentAlignment.MiddleLeft);
                 this.panelOutput.Controls.Add(lbl1);
                 this.panelOutput.Controls.Add(tex);
                 this.panelOutput.Controls.Add(lbl2);
-                inizioLbl1.Offset(0, 35);
-                inizioTxtB.Offset(0, 35);
-                inizioLbl2.Offset(0, 35);
+                inizioLbl1.Offset(0, 38);
+                inizioTxtB.Offset(0, 38);
+                inizioLbl2.Offset(0, 38);
             }
-            #endregion
         }
+
+        private void SvuotaPanel()
+        {
+            foreach (Control controllo in panelOutput.Controls)
+            {
+                if ((controllo is Label) || (controllo is TextBox))
+                {
+                    panelOutput.Controls.Clear();
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SvuotaPanel();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+        /*
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,11 +164,11 @@ namespace ConvertitoreMisure
 
             // Verifico che il umero duble sia maggiore
             // della temperatura assoluta della relativa scala termometrica
-            if (!Temperature.ValiateTemp(UnitTempIn, temperatura))
-            {
-                MessageBox.Show("Valore fuori scala");
-                return;
-            };
+            //  if (!Temperature. ValidateValue(UnitTempIn, temperatura))
+            //  {
+            MessageBox.Show("Valore fuori scala");
+            return;
+            //  };
 
             // Instanzio un oggetto Temperature
             Temperature value = new Temperature(UnitTempIn, temperatura);
@@ -151,10 +228,13 @@ namespace ConvertitoreMisure
                 }
             }
         }
-        */
+
         private void valueInput_TextChanged(object sender, EventArgs e)
         {
             WriteLabel();
         }
+    */
+
+
     }
 }

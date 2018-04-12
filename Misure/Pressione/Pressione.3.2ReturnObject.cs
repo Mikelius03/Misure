@@ -1,28 +1,11 @@
-﻿using System;
-
-namespace Misure
+﻿namespace Misure
 {
+    /**
+     * \class Pressione 
+     * \brief Classe che regola la conversione di Pressione
+     */
     public partial class Pressione : IMisure
     {
-        public bool ValidateValue()
-        {
-            if (SimbolTemp.Equals("De"))
-            {
-                if (AbsValueTemp[Array.IndexOf(Simboli, SimbolTemp)] < _value)
-                    return false;
-                else
-                    return true;
-            }
-            else
-            {
-                if (AbsValueTemp[Array.IndexOf(Simboli, SimbolTemp)] > _value)
-                    return false;
-
-                return true;
-            }
-
-        }
-
         /// <summary>
         /// Converte l'instanza in gradi Kelvin
         /// </summary>
@@ -96,7 +79,6 @@ namespace Misure
                     return new Pressione("K", AbsValueTemp[0]);
             }
         }
-
 
         /// <summary>
         /// Converte l'instanza in gradi Kelvin
@@ -189,5 +171,28 @@ namespace Misure
             return ValueConvert;
         }
 
+        /// <summary>
+        /// Converte un oggetto Pressione nella scala termometrica scelta
+        /// </summary>
+        /// <param name="SimbOut">Simbolo della scala termometrica di Output</param>
+        /// <returns></returns>
+        public object ObjectMisureToMisure(string SimbOut)
+        {
+            // Prima Conversione
+            // Converte il valore dell'oggetto in gradi Kelvin
+            IMisure Temporaneo = (IMisure)ObjectToMisure();
+
+            return Temporaneo.ObjectFromMisure(SimbOut);
+        }
+
+        public double ValueMisureToMisure(string SimbOut)
+        {
+            // Creo una 2° instanza per evitare modicfiche alla 1°
+
+            Pressione temp = new Pressione();
+            temp.Value = this.ValueToMisure();
+            temp.Value = temp.ValueFromMisure(SimbOut);
+            return temp.Value;
+        }
     }
 }

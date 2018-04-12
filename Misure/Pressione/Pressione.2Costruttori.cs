@@ -17,7 +17,7 @@ namespace Misure
         public Pressione()
         {
             Value = 0.0;
-            SimbolTemp = "K";
+            SimbolTemp = "Pa";
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Misure
                 Value = 0.0;
             }
 
-            SimbolTemp = "k";
+            SimbolTemp = "Pa";
         }
 
         /// <summary>
