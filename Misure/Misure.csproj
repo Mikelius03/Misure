@@ -6,4 +6,8 @@
     <FileVersion>18.0.1804.92</FileVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Temperature\" />
+  </ItemGroup>
+
 </Project>

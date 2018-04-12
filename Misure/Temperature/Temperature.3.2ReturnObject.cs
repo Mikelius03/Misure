@@ -1,33 +1,16 @@
-﻿using System;
-
-namespace Misure
+﻿namespace Misure
 {
-    public partial class Temperature
+    /**
+     * \class Temperature 
+     * \brief Classe che regola la conversione di temperature
+     */
+    public partial class Temperature : IMisure
     {
-        private bool ValidateTemp()
-        {
-            if (SimbolTemp.Equals("De"))
-            {
-                if (AbsValueTemp[Array.IndexOf(Simboli, SimbolTemp)] < _value)
-                    return false;
-                else
-                    return true;
-            }
-            else
-            {
-                if (AbsValueTemp[Array.IndexOf(Simboli, SimbolTemp)] > _value)
-                    return false;
-
-                return true;
-            }
-
-        }
-
         /// <summary>
         /// Converte l'instanza in gradi Kelvin
         /// </summary>
         /// <returns>Nuova Instanza in gradi "Simb"</returns>
-        public Temperature ConvertFromKelvin(string Simb)
+        public object ObjectFromMisure(string Simb)
         {
             switch (Simb)
             {
@@ -64,7 +47,7 @@ namespace Misure
         /// Converte l'oggetto instanziato in gradi Kelvin
         /// </summary>
         /// <returns>Nuova instanza in gradi Kelvin</returns>
-        public Temperature ConvertToKelvin()
+        public object ObjectToMisure()
         {
             switch (SimbolTemp)
             {
@@ -97,12 +80,11 @@ namespace Misure
             }
         }
 
-
         /// <summary>
         /// Converte l'instanza in gradi Kelvin
         /// </summary>
         /// <returns>Nuova Instanza in gradi "Simb"</returns>
-        private double ValueFromKelvin(string Simb)
+        public double ValueFromMisure(string Simb)
         {
             double ValueConvert;
             switch (Simb)
@@ -151,7 +133,7 @@ namespace Misure
         /// Converte l'oggetto instanziato in gradi Kelvin
         /// </summary>
         /// <returns>Nuova instanza in gradi Kelvin</returns>
-        private double ValueToKelvin()
+        public double ValueToMisure()
         {
             double ValueConvert;
             switch (SimbolTemp)
@@ -189,5 +171,28 @@ namespace Misure
             return ValueConvert;
         }
 
+        /// <summary>
+        /// Converte un oggetto Temperature nella scala termometrica scelta
+        /// </summary>
+        /// <param name="SimbOut">Simbolo della scala termometrica di Output</param>
+        /// <returns></returns>
+        public object ObjectMisureToMisure(string SimbOut)
+        {
+            // Prima Conversione
+            // Converte il valore dell'oggetto in gradi Kelvin
+            IMisure Temporaneo = (IMisure)ObjectToMisure();
+
+            return Temporaneo.ObjectFromMisure(SimbOut);
+        }
+
+        public double ValueMisureToMisure(string SimbOut)
+        {
+            // Creo una 2° instanza per evitare modicfiche alla 1°
+
+            Temperature temp = new Temperature();
+            temp.Value = this.ValueToMisure();
+            temp.Value = temp.ValueFromMisure(SimbOut);
+            return temp.Value;
+        }
     }
 }

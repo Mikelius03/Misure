@@ -2,7 +2,10 @@
 
 namespace Misure
 {
-    public partial class Temperature
+    /**
+     * \class Temperature 
+     */
+    public partial class Temperature : IMisure
     {
         #region Costruttori
 
@@ -61,7 +64,7 @@ namespace Misure
             SimbolTemp = simb;
 
 
-            if (ValiateTemp(simb, valueTemp))
+            if (ValidateValue(simb, valueTemp))
             {
                 Value = valueTemp;
             }
