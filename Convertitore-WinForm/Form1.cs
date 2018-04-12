@@ -40,8 +40,7 @@ namespace ConvertitoreMisure
             ScriviLblConversione();
 
 
-            SvuotaPanel();
-            InizializzaPanel2();
+            SvuotaPanel2();
         }
 
         private void EnabeControl()
@@ -108,7 +107,7 @@ namespace ConvertitoreMisure
             }
         }
 
-        private void SvuotaPanel()
+        private void SvuotaPanel2()
         {
             foreach (Control controllo in panelOutput.Controls)
             {
@@ -121,13 +120,41 @@ namespace ConvertitoreMisure
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SvuotaPanel();
+            
+            SvuotaPanel2();
+            InizializzaPanel2();
+            panelOutput.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

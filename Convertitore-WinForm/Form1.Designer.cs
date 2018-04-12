@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panelInput = new System.Windows.Forms.Panel();
+            this.lblValueMisura = new System.Windows.Forms.Label();
             this.LblConversione = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,13 +39,13 @@
             this.valueInput = new System.Windows.Forms.TextBox();
             this.ComboBoxInT = new System.Windows.Forms.ComboBox();
             this.CmbSelMisure = new System.Windows.Forms.ComboBox();
-            this.lblValueMisura = new System.Windows.Forms.Label();
             this.panelInput.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelOutput
             // 
             this.panelOutput.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelOutput.Enabled = false;
             this.panelOutput.Location = new System.Drawing.Point(415, 136);
             this.panelOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelOutput.Name = "panelOutput";
@@ -92,6 +93,16 @@
             this.panelInput.Name = "panelInput";
             this.panelInput.Size = new System.Drawing.Size(348, 413);
             this.panelInput.TabIndex = 40;
+            // 
+            // lblValueMisura
+            // 
+            this.lblValueMisura.Enabled = false;
+            this.lblValueMisura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValueMisura.Location = new System.Drawing.Point(3, 200);
+            this.lblValueMisura.Name = "lblValueMisura";
+            this.lblValueMisura.Size = new System.Drawing.Size(340, 29);
+            this.lblValueMisura.TabIndex = 12;
+            this.lblValueMisura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblConversione
             // 
@@ -173,16 +184,6 @@
             this.CmbSelMisure.Size = new System.Drawing.Size(349, 57);
             this.CmbSelMisure.TabIndex = 42;
             this.CmbSelMisure.SelectedIndexChanged += new System.EventHandler(this.CmbSelMisure1_IndexChanged);
-            // 
-            // lblValueMisura
-            // 
-            this.lblValueMisura.Enabled = false;
-            this.lblValueMisura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValueMisura.Location = new System.Drawing.Point(3, 200);
-            this.lblValueMisura.Name = "lblValueMisura";
-            this.lblValueMisura.Size = new System.Drawing.Size(340, 29);
-            this.lblValueMisura.TabIndex = 12;
-            this.lblValueMisura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
