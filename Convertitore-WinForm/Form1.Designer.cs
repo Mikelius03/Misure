@@ -29,7 +29,7 @@
         {
             this.panelOutput = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnConvert = new System.Windows.Forms.Button();
             this.panelInput = new System.Windows.Forms.Panel();
             this.lblValueMisura = new System.Windows.Forms.Label();
             this.LblConversione = new System.Windows.Forms.Label();
@@ -62,23 +62,25 @@
             this.label1.Text = "Tabella Conversione";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnConvert
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(35, 575);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(350, 100);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "CONVERT";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnConvert.Enabled = false;
+            this.btnConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConvert.ForeColor = System.Drawing.Color.Maroon;
+            this.btnConvert.Location = new System.Drawing.Point(47, 436);
+            this.btnConvert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(241, 82);
+            this.btnConvert.TabIndex = 39;
+            this.btnConvert.Text = "CONVERT";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // panelInput
             // 
             this.panelInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelInput.Controls.Add(this.btnConvert);
             this.panelInput.Controls.Add(this.lblValueMisura);
             this.panelInput.Controls.Add(this.LblConversione);
             this.panelInput.Controls.Add(this.label3);
@@ -91,7 +93,7 @@
             this.panelInput.Location = new System.Drawing.Point(37, 136);
             this.panelInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelInput.Name = "panelInput";
-            this.panelInput.Size = new System.Drawing.Size(348, 413);
+            this.panelInput.Size = new System.Drawing.Size(348, 539);
             this.panelInput.TabIndex = 40;
             // 
             // lblValueMisura
@@ -106,12 +108,13 @@
             // 
             // LblConversione
             // 
-            this.LblConversione.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblConversione.ForeColor = System.Drawing.Color.OrangeRed;
+            this.LblConversione.Font = new System.Drawing.Font("Constantia", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblConversione.ForeColor = System.Drawing.Color.Silver;
             this.LblConversione.Location = new System.Drawing.Point(2, 331);
             this.LblConversione.Name = "LblConversione";
             this.LblConversione.Size = new System.Drawing.Size(341, 62);
             this.LblConversione.TabIndex = 11;
+            this.LblConversione.Text = "Valore da Convertire";
             this.LblConversione.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -168,6 +171,7 @@
             this.ComboBoxInT.Name = "ComboBoxInT";
             this.ComboBoxInT.Size = new System.Drawing.Size(253, 37);
             this.ComboBoxInT.TabIndex = 0;
+            this.ComboBoxInT.SelectedIndexChanged += new System.EventHandler(this.ComboBoxInT_SelectedIndexChanged);
             // 
             // CmbSelMisure
             // 
@@ -194,7 +198,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbSelMisure);
             this.Controls.Add(this.panelOutput);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panelInput);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -210,7 +213,7 @@
 
         private System.Windows.Forms.Panel panelOutput;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.Panel panelInput;
         private System.Windows.Forms.Label LblConversione;
         private System.Windows.Forms.Label label3;

@@ -2,14 +2,17 @@
 
 namespace Misure
 {
-    public partial class Pressione : IMisure
+    namespace Conversioni
     {
-        #region Override
-        public override string ToString()
+        public partial class Pressione : IMisure
         {
-            return Value.ToString() + " " +
-                SimbolUnitTemp[Array.IndexOf(Simboli, SimbolTemp)];
+            #region Override
+            public override string ToString()
+            {
+                return Value.ToString() + " " +
+                    SimbolUnitTemp[Array.IndexOf(Simboli, SimbolTemp)];
+            }
+            #endregion
         }
-        #endregion
     }
 }
