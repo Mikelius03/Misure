@@ -17,8 +17,8 @@ namespace Misure
             /// </summary>
             public Temperature()
             {
-                Value = 0.0;
-                SimbolTemp = "K";
+                _value = 0.0;
+                _unitSymbol = "k";
             }
 
             /// <summary>
@@ -28,8 +28,8 @@ namespace Misure
             /// <param name="simb">Simbolo Scala Termometrica</param>
             public Temperature(string simb)
             {
-                Value = AbsValueTemp[Array.IndexOf(Simboli, simb)];
-                SimbolTemp = simb;
+                _value = UnitAbsValue[Array.IndexOf(UnitSymbol, simb)];
+                _unitSymbol = simb;
             }
 
             /// <summary>
@@ -41,14 +41,14 @@ namespace Misure
             {
                 if (value >= 0.0) // Maggiore dello Zero kelvin
                 {
-                    Value = value;
+                    _value = value;
                 }
                 else
                 {
-                    Value = 0.0;
+                    _value = 0.0;
                 }
 
-                SimbolTemp = "k";
+                _unitSymbol = "k";
             }
 
             /// <summary>
@@ -58,21 +58,19 @@ namespace Misure
             /// <param name="valueTemp">Valore della temperatura</param>
             public Temperature(string simb, double valueTemp)
             {
-                int index = Array.IndexOf(Simboli, simb);
-
-                if (index == -1)
-                    ;
-
-                SimbolTemp = simb;
+                if (VerificaMisure(simb))
+                   _unitSymbol = simb;
+                else
+                    return;
 
 
                 if (ValidateValue(simb, valueTemp))
                 {
-                    Value = valueTemp;
+                   _value = valueTemp;
                 }
                 else
                 {
-                    Value = 0.0; // AbsValueTemp[index];
+                    _value = 0.0; // AbsValueTemp[index];
                 }
 
             }

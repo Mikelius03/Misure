@@ -9,57 +9,46 @@
         public partial class Pressione : IMisure
         {
             #region Campi
-
             #region static
             /// <summary>
             /// Matrice di Stri ghe contenenti i sinboli delle scale termometriche
             /// </summary>
-            public static readonly string[] Simboli =
+            public static readonly string[] SimbUnit =
             { "Pa", "bar", "torr", "mmH2O", "atm", "kgf", "ata", "Ba" };
 
             /// <summary>
             /// Matrice di Stri ghe contenenti i nomi delle scale termometriche
             /// </summary>
-            public static readonly string[] namUnitTemp =
+            public static readonly string[] NameUnit =
              {"Pascal", "Bar", "Torr", "millimetri H2O", "Atmosfere",
                 "Kilogrammi forza", "atmosfere tec", "barye" };
 
-            /// <summary>
-            /// Matrice di Strighe contenente le unità di misura delle scale termometriche
-            /// </summary>
-            public static readonly string[] SimbUnitTemp =
-             {"Pa", "bar", "torr", "mmH2O", "atm", "kgf", "ata", "Ba" };
-
-            /// <summary>
-            /// Matrice di Stri ghe contenenti i limiti inferiori delle scale termometriche
-            /// </summary>
-            public static readonly double[] AbsValueTemp =
-                {0.0, -273.15, -459.67, 0.0, 559.725,  -218.52, -90.1395, -135.904};
-            //    K,      C,       F,    R,    De,         r,      N,        Ro
 
             #endregion
-
             #region private
             private double _value;
-            private string _SimbolTemp;
-            private string _NomeUnita;
-            private string _SimbolUnita;
+            private string _unitMeasure;
+            private string _unitSymbol;
             #endregion
-
             #endregion
 
             #region Property  
 
-            public double Value { get => _value; set => _value = value; }
-            public string SimbolTemp { get => _SimbolTemp; set => _SimbolTemp = value; }
-            public string NomeUnita { get => _NomeUnita; set => _NomeUnita = value; }
-            public string SimbolUnita { get => _SimbolUnita; set => _SimbolUnita = value; }
+            // Nome e simbolo della grandezza fisica
+            public string MeasurementName { get => "Pressione"; }
+           public string MeasurementSymbol { get => "P"; }
 
-            public string[] NameUnitTemp { get => namUnitTemp; }
-            public string[] SimbolUnitTemp { get => SimbUnitTemp; }
+            // valore scalare, Nome e Simbolo del misurazione da convertire
+            public double Unit_Value { get => _value; private set => _value = value; }
+            public string Unit_Name { get => _unitMeasure; private set => _unitMeasure = value; }
+            public string Unit_Symbol { get => _unitSymbol; private set => _unitSymbol = value; }
+
+            // Matrici contenenti rispettivamente, Nomi, Simboli e Valori limite delle unita' di misura
+
+            public string[] UnitName { get => NameUnit; }
+            public string[] UnitSymbol { get => SimbUnit; }
 
             #endregion
-
         }
     }
 }

@@ -18,19 +18,19 @@ namespace Misure
             /// </summary>
             public Pressione()
             {
-                Value = 0.0;
-                SimbolTemp = "Pa";
+                _value = 0.0;
+                _unitSymbol = "Pa";
             }
 
             /// <summary>
-            /// Instanzia un oggetto scala termometrica "simb" 
-            /// e come valore il relativo valore Assoluto
+            /// Instanzia un oggetto con unita' "simb" 
+            /// e come valore 0.0
             /// </summary>
-            /// <param name="simb">Simbolo Scala Termometrica</param>
+            /// <param name="simb">Simbolo unita' di Misura</param>
             public Pressione(string simb)
             {
-                Value = AbsValueTemp[Array.IndexOf(Simboli, simb)];
-                SimbolTemp = simb;
+               _value = 0.0;
+                _unitSymbol = simb;
             }
 
             /// <summary>
@@ -42,14 +42,14 @@ namespace Misure
             {
                 if (value >= 0.0) // Maggiore dello Zero kelvin
                 {
-                    Value = value;
+                    _value = value;
                 }
                 else
                 {
-                    Value = 0.0;
+                    _value = 0.0;
                 }
 
-                SimbolTemp = "Pa";
+                _unitSymbol = "Pa";
             }
 
             /// <summary>
@@ -59,21 +59,21 @@ namespace Misure
             /// <param name="valueTemp">Valore della temperatura</param>
             public Pressione(string simb, double valueTemp)
             {
-                int index = Array.IndexOf(Simboli, simb);
+                int index = Array.IndexOf(UnitSymbol, simb);
 
                 if (index == -1)
                     return;
 
-                SimbolTemp = simb;
+                _unitSymbol = simb;
 
 
                 if (ValidateValue(simb, valueTemp))
                 {
-                    Value = valueTemp;
+                   _value = valueTemp;
                 }
                 else
                 {
-                    Value = 0.0; // AbsValueTemp[index];
+                    _value = 0.0; // AbsValueTemp[index];
                 }
 
             }

@@ -12,8 +12,7 @@ namespace Misure
             /// <returns>Stringa riferita all'oggetto instanziato</returns>
             public override string ToString()
             {
-                return Value.ToString() + " " +
-                    SimbolUnitTemp[Array.IndexOf(Simboli, SimbolTemp)];
+                return _value.ToString() + " " + _unitSymbol;
             }
         }
     }

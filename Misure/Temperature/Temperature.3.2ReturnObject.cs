@@ -20,25 +20,25 @@
                         return new Temperature("k", _value);
 
                     case "C":
-                        return new Temperature("C", _value - 273.15);
+                        return new Temperature("°C", _value - 273.15);
 
                     case "F":
-                        return new Temperature("F", _value * (9.0 / 5.0) - 459.67);
+                        return new Temperature("°F", _value * (9.0 / 5.0) - 459.67);
 
                     case "R":
-                        return new Temperature("R", _value * (9.0 / 5.0));
+                        return new Temperature("°R", _value * (9.0 / 5.0));
 
                     case "De":
-                        return new Temperature("De", (373.15 - _value) * (3.0 / 2.0));
+                        return new Temperature("°De", (373.15 - _value) * (3.0 / 2.0));
 
                     case "N":
-                        return new Temperature("N", (_value - 273.15) * (33.0 / 100.0));
+                        return new Temperature("°N", (_value - 273.15) * (33.0 / 100.0));
 
                     case "r":
-                        return new Temperature("r", (_value - 273.15) * (4.0 / 5.0));
+                        return new Temperature("°r", (_value - 273.15) * (4.0 / 5.0));
 
                     case "Rø":
-                        return new Temperature("Rø", (_value - 273.15) * (21.0 / 40.0) + 7.5);
+                        return new Temperature("°Rø", (_value - 273.15) * (21.0 / 40.0) + 7.5);
 
                     default:
                         return this;
@@ -51,34 +51,34 @@
             /// <returns>Nuova instanza in gradi Kelvin</returns>
             public object ObjectToMisure()
             {
-                switch (SimbolTemp)
+                switch (_unitSymbol)
                 {
                     case "k":
-                        return new Temperature("K", _value);
+                        return new Temperature("k", _value);
 
-                    case "C":
-                        return new Temperature("K", _value + 273.15);
+                    case "°C":
+                        return new Temperature("k", _value + 273.15);
 
-                    case "F":
-                        return new Temperature("K", (_value + 459.67) * (5.0 / 9.0));
+                    case "°F":
+                        return new Temperature("k", (_value + 459.67) * (5.0 / 9.0));
 
-                    case "R":
-                        return new Temperature("K", _value * (5.0 / 9.0));
+                    case "°R":
+                        return new Temperature("k", _value * (5.0 / 9.0));
 
-                    case "De":
-                        return new Temperature("K", 373.15 - (_value * (2.0 / 3.0)));
+                    case "°De":
+                        return new Temperature("k", 373.15 - (_value * (2.0 / 3.0)));
 
-                    case "N":
-                        return new Temperature("K", _value * (100.0 / 33.0) + 273.15);
+                    case "°N":
+                        return new Temperature("k", _value * (100.0 / 33.0) + 273.15);
 
-                    case "r":
-                        return new Temperature("K", (_value * (5.0 / 4.0)) + 273.15);
+                    case "°r":
+                        return new Temperature("k", (_value * (5.0 / 4.0)) + 273.15);
 
-                    case "Rø":
-                        return new Temperature("K", ((_value - 7.5) * (40.0 / 21.0)) + 273.15);
+                    case "°Rø":
+                        return new Temperature("k", ((_value - 7.5) * (40.0 / 21.0)) + 273.15);
 
                     default:
-                        return new Temperature("K", AbsValueTemp[0]);
+                        return new Temperature("k", UnitAbsValue[0]);
                 }
             }
 
@@ -95,31 +95,31 @@
                         ValueConvert = _value;
                         break;
 
-                    case "C":
+                    case "°C":
                         ValueConvert = _value - 273.15;
                         break;
 
-                    case "F":
+                    case "°F":
                         ValueConvert = _value * (9.0 / 5.0) - 459.67;
                         break;
 
-                    case "R":
+                    case "°R":
                         ValueConvert = _value * (9.0 / 5.0);
                         break;
 
-                    case "De":
+                    case "°De":
                         ValueConvert = (373.15 - _value) * (3.0 / 2.0);
                         break;
 
-                    case "N":
+                    case "°N":
                         ValueConvert = (_value - 273.15) * (33.0 / 100.0);
                         break;
 
-                    case "r":
+                    case "°r":
                         ValueConvert = (_value - 273.15) * (4.0 / 5.0);
                         break;
 
-                    case "Rø":
+                    case "°Rø":
                         ValueConvert = (_value - 273.15) * (21.0 / 40.0) + 7.5;
                         break;
 
@@ -138,36 +138,34 @@
             public double ValueToMisure()
             {
                 double ValueConvert;
-                switch (SimbolTemp)
+                switch (_unitSymbol)
                 {
-
                     case "k":
                         ValueConvert = _value;
                         break;
-
-                    case "C":
+                    case "°C":
                         ValueConvert = _value + 273.15;
                         break;
-                    case "F":
+                    case "°F":
                         ValueConvert = (_value + 459.67) * (5.0 / 9.0);
                         break;
-                    case "R":
+                    case "°R":
                         ValueConvert = _value * (5.0 / 9.0);
                         break;
-                    case "De":
+                    case "°De":
                         ValueConvert = 373.15 - (_value * (2.0 / 3.0));
                         break;
-                    case "N":
+                    case "°N":
                         ValueConvert = _value * (100.0 / 33.0) + 273.15;
                         break;
-                    case "r":
+                    case "°r":
                         ValueConvert = (_value * (5.0 / 4.0)) + 273.15;
                         break;
-                    case "Rø":
+                    case "°Rø":
                         ValueConvert = ((_value - 7.5) * (40.0 / 21.0)) + 273.15;
                         break;
                     default:
-                        ValueConvert = AbsValueTemp[0];
+                        ValueConvert = UnitAbsValue[0];
                         break;
                 }
                 return ValueConvert;
@@ -190,11 +188,11 @@
             public double ValueMisureToMisure(string SimbOut)
             {
                 // Creo una 2° instanza per evitare modicfiche alla 1°
-
-                Temperature temp = new Temperature();
-                temp.Value = this.ValueToMisure();
-                temp.Value = temp.ValueFromMisure(SimbOut);
-                return temp.Value;
+                Temperature temp = new Temperature("k", ValueToMisure());
+                this.Unit_Value  = temp.ValueFromMisure(SimbOut) ;
+                this.Unit_Symbol = SimbOut;
+              
+                return Unit_Value;
             }
         }
     }

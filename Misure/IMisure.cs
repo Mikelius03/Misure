@@ -7,14 +7,21 @@ namespace Misure
     {
         public interface IMisure
         {
-            #region Proprieta'
-            ///
-            double Value { get; set; }
-            string SimbolTemp { get; set; }
-            string NomeUnita { get; set; }
-            string SimbolUnita { get; set; }
-            string[] NameUnitTemp { get; }
-            string[] SimbolUnitTemp { get; }
+            #region Proprieta'            
+
+            // Nome e simbolo della grandezza fisica
+            string MeasurementName      { get; }
+            string MeasurementSymbol    { get; }
+
+            // valore scalare, Nome e Simbolo del misurazione da convertire
+            double Unit_Value  { get; }
+            string Unit_Name   { get; }
+            string Unit_Symbol { get; }
+
+            // Matrici con i nomi e simboli delle diverse unita' di misura
+            string[] UnitName { get; }
+            string[] UnitSymbol { get; }
+
             #endregion
 
             #region Metodi        

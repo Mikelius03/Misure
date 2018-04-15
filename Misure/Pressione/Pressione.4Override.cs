@@ -9,8 +9,7 @@ namespace Misure
             #region Override
             public override string ToString()
             {
-                return Value.ToString() + " " +
-                    SimbolUnitTemp[Array.IndexOf(Simboli, SimbolTemp)];
+                return _value.ToString() + " " +_unitSymbol;
             }
             #endregion
         }

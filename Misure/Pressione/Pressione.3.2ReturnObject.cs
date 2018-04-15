@@ -51,7 +51,7 @@
             /// <returns>Nuova instanza in gradi Kelvin</returns>
             public object ObjectToMisure()
             {
-                switch (SimbolTemp)
+                switch (Unit_Symbol)
                 {
                     case "k":
                         return new Pressione("K", _value);
@@ -78,7 +78,7 @@
                         return new Pressione("K", ((_value - 7.5) * (40.0 / 21.0)) + 273.15);
 
                     default:
-                        return new Pressione("K", AbsValueTemp[0]);
+                        return new Pressione("K", 0.0);
                 }
             }
 
@@ -138,7 +138,7 @@
             public double ValueToMisure()
             {
                 double ValueConvert;
-                switch (SimbolTemp)
+                switch (Unit_Symbol)
                 {
 
                     case "k":
@@ -167,7 +167,7 @@
                         ValueConvert = ((_value - 7.5) * (40.0 / 21.0)) + 273.15;
                         break;
                     default:
-                        ValueConvert = AbsValueTemp[0];
+                        ValueConvert = 0.0;
                         break;
                 }
                 return ValueConvert;
@@ -192,9 +192,9 @@
                 // Creo una 2° instanza per evitare modicfiche alla 1°
 
                 Pressione temp = new Pressione();
-                temp.Value = this.ValueToMisure();
-                temp.Value = temp.ValueFromMisure(SimbOut);
-                return temp.Value;
+                temp.Unit_Value = this.ValueToMisure();
+                temp.Unit_Value = temp.ValueFromMisure(SimbOut);
+                return temp.Unit_Value;
             }
         }
     }

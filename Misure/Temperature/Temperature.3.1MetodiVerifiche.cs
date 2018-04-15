@@ -16,7 +16,7 @@ namespace Misure
             /// <returns>ttrue se il simbolo è valido, altrimenti false</returns>
             public bool VerificaMisure(string simb)
             {
-                if (Array.IndexOf(Simboli, simb) == -1)
+                if (Array.IndexOf(UnitSymbol, simb) == -1)
                     return false;
                 return true;
             }
@@ -29,21 +29,21 @@ namespace Misure
             /// <returns>true se il valore e' consentito, altrimenti false</returns>
             public bool ValidateValue(string Simb, double value)
             {
-                int index = Array.IndexOf(Simboli, Simb);
-                if (index == -1)
+                int index = Array.IndexOf(UnitSymbol, Simb);
+                if (index <= -1)
                     return false;
 
                 // La scala Delisle diminuisce all'aumentare dell'agitazione termica delle molecole
                 if (Simb.Equals("De"))
                 {
-                    if (AbsValueTemp[index] < value)
+                    if (UnitAbsValue[index] < value)
                         return false;
                     else
                         return true;
                 }
                 else
                 {
-                    if (AbsValueTemp[index] > value)
+                    if (UnitAbsValue[index] > value)
                         return false;
                     else
                         return true;
