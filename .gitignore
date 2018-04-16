@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs
+/Convertitore-VisualBasic-WinForm/obj
+/Convertitore-CSharp-WPF/obj

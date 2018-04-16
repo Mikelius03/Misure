@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Misure
 {
@@ -29,25 +30,33 @@ namespace Misure
             /// <returns>true se il valore e' consentito, altrimenti false</returns>
             public bool ValidateValue(string Simb, double value)
             {
-                int index = Array.IndexOf(UnitSymbol, Simb);
-                if (index <= -1)
-                    return false;
+                try
+                {
+                    int index = Array.IndexOf(UnitSymbol, Simb);
+                    if (index <= -1)
+                        return false;
 
-                // La scala Delisle diminuisce all'aumentare dell'agitazione termica delle molecole
-                if (Simb.Equals("De"))
-                {
-                    if (UnitAbsValue[index] < value)
-                        return false;
+                    // La scala Delisle diminuisce all'aumentare dell'agitazione termica delle molecole
+                    if (Simb.Equals("De"))
+                    {
+                        if (UnitAbsValue[index] < value)
+                            return false;
+                        else
+                            return true;
+                    }
                     else
-                        return true;
+                    {
+                        if (UnitAbsValue[index] > value)
+                            return false;
+                        else
+                            return true;
+                    }
                 }
-                else
+                catch
                 {
-                    if (UnitAbsValue[index] > value)
-                        return false;
-                    else
-                        return true;
+                    throw new NullReferenceException();
                 }
+
 
             }
         }

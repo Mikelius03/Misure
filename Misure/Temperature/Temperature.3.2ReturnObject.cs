@@ -1,4 +1,7 @@
-﻿namespace Misure
+﻿
+using System;
+
+namespace Misure
 {
     namespace Conversioni
     {
@@ -193,6 +196,17 @@
                 this.Unit_Symbol = SimbOut;
               
                 return Unit_Value;
+            }
+
+            public void ImpostaObject(string a,double b)
+            {
+                if ( VerificaMisure(a) && ValidateValue(a, b) )
+                {
+                    _value = b;
+                    _unitSymbol = a;
+                }
+                else
+                    throw new NotImplementedException("Non e' possibile");
             }
         }
     }

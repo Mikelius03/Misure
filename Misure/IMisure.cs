@@ -78,6 +78,7 @@ namespace Misure
 
 
             double ValueMisureToMisure(string SimbOut);
+            void ImpostaObject(string a, double b);
             #endregion
 
             #region Override

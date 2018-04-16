@@ -7,29 +7,47 @@ namespace ConvertitoreMisure
 {
     public partial class Form1 : Form
     {
+        #region Variabili
 
-        private double temperatura;
-        private string UnitTempIn;
-        private string contenuto;
-        private double[] result;
+        /// <summary>Nome dell' unita' di misura in Input</summary>
+        private string NameUnitIn;
 
-        private int i = 0;
-        private int selected = 0;
+        /// <summary>Simbolo dell' unita' di misura in Input</summary>
+        private string SimbUnitIn;
+
+        /// <summary>Valore dell' unita' di misura</summary>
+        private double ValueMeasure;
+
+        // Oggetto per la conversione
         IMisure ObjMisure;
 
+        /************************************************************************************/
+        private string testoTextBox;
+        /// <summary>Array di double contenenti tutte le conversioni</summary>
+        private double[] result;
+
+        //indice per i vari foreach
+        private int i = 0;
+
+        #endregion
+
         #region MetodiDellaForm
+
         public Form1()
         {
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            CmbSelMisure.SelectedIndex = 0;
+            ComboBoxInT.SelectedIndex = 0;
+            valueInput.Text = "0";
         }
         #endregion
 
         #region MetodiDeiPanel
-        private void InizializzaPanel2()
+        private void IniPanelOutput()
         {
 
             Point inizioLbl1 = new Point(1, 32);
@@ -40,15 +58,15 @@ namespace ConvertitoreMisure
 
             Point inizioLbl2 = new Point(250, 32);
             Size SizeControlLbl2 = new Size(40, 26);
-            for (int ii = 0; ii < ObjMisure.SimbolUnitTemp.Length; ii++)
+            for (int ii = 0; ii < ObjMisure.UnitSymbol.Length; ii++)
             {
-                string NameControlLbl1 = "lbl" + i.ToString() + ObjMisure.NameUnitTemp[ii];
-                string NameControlTxt = "lbl" + i.ToString() + ObjMisure.NameUnitTemp[ii];
-                string NameControlLbl2 = "lbl" + i.ToString() + ObjMisure.SimbolUnitTemp[ii];
+                string NameControlLbl1 = "lbl" + i.ToString() + ObjMisure.UnitName[ii];
+                string NameControlTxt = "lbl" + i.ToString() + ObjMisure.UnitName[ii];
+                string NameControlLbl2 = "lbl" + i.ToString() + ObjMisure.UnitSymbol[ii];
 
-                Label lbl1 = AddLabel(NameControlLbl1, inizioLbl1, SizeControlLbl1, ObjMisure.NameUnitTemp[ii], ContentAlignment.MiddleRight);
+                Label lbl1 = AddLabel(NameControlLbl1, inizioLbl1, SizeControlLbl1, ObjMisure.UnitName[ii], ContentAlignment.MiddleRight);
                 TextBox tex = AddTextBox(NameControlTxt, inizioTxtB, SizeControlTxtB, "");
-                Label lbl2 = AddLabel(NameControlLbl2, inizioLbl2, SizeControlLbl2, ObjMisure.SimbolUnitTemp[ii], ContentAlignment.MiddleLeft);
+                Label lbl2 = AddLabel(NameControlLbl2, inizioLbl2, SizeControlLbl2, ObjMisure.UnitSymbol[ii], ContentAlignment.MiddleLeft);
                 this.panelOutput.Controls.Add(lbl1);
                 this.panelOutput.Controls.Add(tex);
                 this.panelOutput.Controls.Add(lbl2);
@@ -57,137 +75,140 @@ namespace ConvertitoreMisure
                 inizioLbl2.Offset(0, 38);
             }
         }
-
         private void EnabePanel(Panel MyPanel)
         {
-            MyPanel.Enabled = true;
-            foreach (Control item in MyPanel.Controls)
+            if (MyPanel.Enabled == false)
             {
-                item.Enabled = true;
-            }
-        }
-
-        private void SvuotaPanel2(Panel MyPanel)
-        {
-            foreach (Control controllo in MyPanel.Controls)
-            {
-                if ((controllo is Label) || (controllo is TextBox))
+                MyPanel.Enabled = true;
+                foreach (Control item in MyPanel.Controls)
                 {
-                    MyPanel.Controls.Clear();
+                    item.Enabled = true;
                 }
             }
+            else
+            {
+                // MyPanel.Enabled = false;
+            }
+        }
+        private void ClearPanel(Panel MyPanel)
+        {
+            MyPanel.Controls.Clear();
         }
         #endregion
 
-        private void CmbSelMisure1_IndexChanged(object sender, EventArgs e)
+        #region MetodiIndiciComboBox    
+
+        /// <summary>
+        /// Verifica che il testo della TextBox sia un numero
+        /// </summary>
+        /// <param name="TextNumeric">Testo della TextBox</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException">Eccezione in CheckInputValue</exception>
+        private bool CheckInputValue(string testoTextBox)
         {
-            selected = CmbSelMisure.SelectedIndex;
-            ObjMisure = Scelta(selected);
-            ComboBoxInT.Items.Clear();
-
-            ComboBoxInT.Items.AddRange(ObjMisure.NameUnitTemp);
-            ComboBoxInT.Text = ObjMisure.NameUnitTemp[0].ToString();
-
-            EnabePanel(panelInput);
-
-            lblValueMisura.Text = "Valore " + CmbSelMisure.Text.ToString();
-            ScriviLblConversione();
-
-
-            SvuotaPanel2(panelOutput);
+            testoTextBox = testoTextBox.Replace('.', ',');
+            //Verifico che il dato nella TextBox sia un double
+            return Double.TryParse(testoTextBox, out ValueMeasure);
         }
 
-        private void ScriviLblConversione()
+        private void CmbSelMisure1_IndexChanged(object sender, EventArgs e)
         {
-            LblConversione.Text = valueInput.Text.ToString() + " " +
-                ObjMisure.SimbolUnitTemp[ComboBoxInT.SelectedIndex].ToString();
+            ObjMisure = Scelta(CmbSelMisure.SelectedIndex);
+
+            /// Setto la ComboBoxInT
+            ComboBoxInT.Items.Clear();
+            ComboBoxInT.Items.AddRange(ObjMisure.UnitName);
+            ComboBoxInT.Text = ComboBoxInT.Items[0].ToString();
+
+            // Scrivo la Label per kikki
+            valueInput.Text = "0";
+
+            LblConversione.Text = "0 " + ObjMisure.UnitSymbol[0];
+            // Scrivo la Label del valore da convertire
+            lblValueMisura.Text = "Valore " + CmbSelMisure.Text;
+
+            // Svuoto il panelOutpu (Nel caso fosse già stato usato)
+            ClearPanel(panelOutput);
         }
 
         private void ComboBoxInT_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ScriviLblConversione();
+
+            int index = ComboBoxInT.SelectedIndex;
+            NameUnitIn = ComboBoxInT.SelectedItem.ToString();
+            SimbUnitIn = ObjMisure.UnitSymbol[index];
+            LblConversione.Text = valueInput.Text + " " + SimbUnitIn;
+
         }
+        #endregion
 
-
-
-        /// <summary>Checks the input value</summary>
-        /// <param name="TextNumeric">Testo che rappresenta il valore numerico da verificare</param>
-        private void CheckInputValue(string TextNumeric)
+        #region MetodiDelButton
+        private void BtnConvert_Click(object sender, EventArgs e)
         {
-            contenuto = TextNumeric.Replace('.', ',');
-
-            //Verifico che il dato nella TextBox sia un double
-            if (!Double.TryParse(contenuto, out temperatura))
+            if (!CheckInputValue(valueInput.Text))
             {
+                MessageBox.Show("Input non corretto");
                 valueInput.Clear();
-                valueInput.Text = "ERRORE";
-            }
-
-        }
-
-
-        private void btnConvert_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CheckInputScale();
-                CheckInputValue(valueInput.Text.ToString());
-            }
-            catch
-            {
-                MessageBox.Show("eRRORI");
-            }
-
-            Temperature Obj = new Temperature();
-
-
-            Obj.Value = temperatura;
-
-            if (!Obj.ValidateValue(UnitTempIn, temperatura))
-            {
-                MessageBox.Show("Valore fuori scala");
+                ComboBoxInT.Text = "";
+          //      MostraConversioni(null);
                 return;
             }
-            else { MessageBox.Show("Valore in scala:::"+Obj.ToString());
-            }
+
+            // Imposto l'instanza creata con la misurazione da convertire
+            ObjMisure.ImpostaObject(SimbUnitIn, ValueMeasure);
 
             result = new double[8];
             i = 0;
-            foreach (string simbol in Obj.SimbolUnitTemp)
+
+            foreach (string simbol in ObjMisure.UnitSymbol)
             {
                 if (i < 8)
                 {
-                    result[i++] = Math.Round((Obj).ValueMisureToMisure(simbol), 3);
-
+                    result[i++] = Math.Round((ObjMisure).ValueMisureToMisure(simbol), 3);
                 }
             }
-
-            MessageBox.Show("nono"+result[2].ToString());
+            MostraConversioni(result);
         }
+        #endregion
 
-        void fer()
+        private void MostraConversioni(double[] result)
         {
-            SvuotaPanel2(panelOutput);
-            InizializzaPanel2();
+
+            ClearPanel(panelOutput);
             EnabePanel(panelOutput);
-
-
-            // Verifico che il umero duble sia maggiore
-            // della temperatura assoluta della relativa scala termometrica
-
-
-            // Instanzio un oggetto Temperature
-            //   IMisure value = Scelta(CmbSelMisure.SelectedIndex);
-
-
-
+            IniPanelOutput();
 
 
             i = 0;
             foreach (Control txb in panelOutput.Controls)
             {
                 if ((txb is TextBox) && i < 8)
-                    txb.Text = result[i++].ToString();
+                    if (!(result is null))
+                    {
+                        txb.Text = result[i++].ToString();
+                    }
+                    else
+                    {
+                        txb.Text = "0.0";
+                    }
+            }
+
+        }
+
+
+
+
+        public IMisure Scelta(int val)
+        {
+            switch (val)
+            {
+                case 0:
+                    return new Temperature();
+                case 1:
+                    return new Pressione();
+                default:
+                    // return new Dist(); ;
+                    return null;
             }
         }
     }

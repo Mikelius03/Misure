@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Misure
 {
@@ -28,8 +29,17 @@ namespace Misure
             /// <param name="simb">Simbolo Scala Termometrica</param>
             public Temperature(string simb)
             {
-                _value = UnitAbsValue[Array.IndexOf(UnitSymbol, simb)];
-                _unitSymbol = simb;
+                try
+                {
+                    _value = UnitAbsValue[Array.IndexOf(UnitSymbol, simb)];
+                    _unitSymbol = simb;
+                }
+                catch
+                {
+                    _value = 0.0;
+                    _unitSymbol = "k";
+                    MessageBox.Show("Simbolo Sconosciuto, l'oggetto sara instanziato a 0.0 k");
+                }
             }
 
             /// <summary>
@@ -58,24 +68,28 @@ namespace Misure
             /// <param name="valueTemp">Valore della temperatura</param>
             public Temperature(string simb, double valueTemp)
             {
-                if (VerificaMisure(simb))
-                   _unitSymbol = simb;
-                else
-                    return;
-
-
-                if (ValidateValue(simb, valueTemp))
+                try
                 {
-                   _value = valueTemp;
+                    if (ValidateValue(simb, valueTemp))
+                    {
+                        _value = valueTemp;
+                        _unitSymbol = simb;
+                    }
+                    else
+                    {
+                        _value = 0.0;
+                        _unitSymbol = "k";
+                    }
                 }
-                else
+                catch
                 {
-                    _value = 0.0; // AbsValueTemp[index];
+                    _value = 0.0;
+                    _unitSymbol = "k";
+                    throw;
                 }
 
+                #endregion
             }
-
-            #endregion
         }
     }
 }

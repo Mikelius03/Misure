@@ -20,8 +20,8 @@
             /// Matrice di Stri ghe contenenti i nomi delle scale termometriche
             /// </summary>
             public static readonly string[] NameUnit =
-             {"Pascal", "Bar", "Torr", "millimetri H2O", "Atmosfere",
-                "Kilogrammi forza", "atmosfere tec", "barye" };
+             {"pascal", "bar", "millimetri di mercurio", "millimetri H2O", "atmosfere",
+                "kilogrammi Forza", "atmosfere tecniche", "barye" };
 
 
             #endregion

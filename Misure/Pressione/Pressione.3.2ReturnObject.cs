@@ -1,4 +1,6 @@
-﻿namespace Misure
+﻿using System;
+
+namespace Misure
 {
     namespace Conversioni
     {
@@ -195,6 +197,16 @@
                 temp.Unit_Value = this.ValueToMisure();
                 temp.Unit_Value = temp.ValueFromMisure(SimbOut);
                 return temp.Unit_Value;
+            }
+            public void ImpostaObject(string a, double b)
+            {
+                if (ValidateValue(a, b))
+                {
+                    _value = b;
+                    _unitSymbol = a;
+                }
+                else
+                    throw new NotImplementedException("cagsdgvallino");
             }
         }
     }
