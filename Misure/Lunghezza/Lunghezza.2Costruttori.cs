@@ -1,29 +1,25 @@
 ﻿using System;
-/// <summary>
-/// 
-/// </summary>
+using System.Windows.Forms;
+
 namespace Misure
-{   
-    /// <summary>
-    ///     
-    /// </summary>
+{
     namespace Conversioni
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <seealso cref="Misure.Conversioni.IMisure" />
-        public partial class Temperature : IMisure
+        /**
+         * \class Lunghezza 
+         */
+        public partial class Lunghezza : IMisure
         {
             #region Costruttori
+
             /// <summary>
             /// Costruttore Generico
             /// Crea un oggetto del valore [0.0 K]
             /// </summary>
-            public Temperature()
+            public Lunghezza()
             {
                 _value = 0.0;
-                _unitSymbol = "k";
+                _unitSymbol = "m";
             }
 
             /// <summary>
@@ -31,17 +27,17 @@ namespace Misure
             /// e come valore il relativo valore Assoluto
             /// </summary>
             /// <param name="simb">Simbolo Scala Termometrica</param>
-            public Temperature(string simb)
+            public Lunghezza(string simb)
             {
                 try
                 {
-                    _value = UnitAbsValue[Array.IndexOf(UnitSymbol, simb)];
+                    _value =0.0;
                     _unitSymbol = simb;
                 }
                 catch
                 {
                     _value = 0.0;
-                    _unitSymbol = "k";
+                    _unitSymbol = "m";
                 }
             }
 
@@ -50,7 +46,7 @@ namespace Misure
             /// e con "k" come Scala Termometrica
             /// </summary>
             /// <param name="value">Valore della Temperatura</param>
-            public Temperature(double value)
+            public Lunghezza(double value)
             {
                 if (value >= 0.0) // Maggiore dello Zero kelvin
                 {
@@ -61,7 +57,7 @@ namespace Misure
                     _value = 0.0;
                 }
 
-                _unitSymbol = "k";
+                _unitSymbol = "m";
             }
 
             /// <summary>
@@ -69,7 +65,7 @@ namespace Misure
             /// </summary>
             /// <param name="simb">Simbolo dell'unita'</param>
             /// <param name="valueTemp">Valore della temperatura</param>
-            public Temperature(string simb, double valueTemp)
+            public Lunghezza(string simb, double valueTemp)
             {
                 try
                 {
@@ -81,19 +77,17 @@ namespace Misure
                     else
                     {
                         _value = 0.0;
-                        _unitSymbol = "k";
+                        _unitSymbol = "m";
                     }
                 }
                 catch
                 {
                     _value = 0.0;
-                    _unitSymbol = "k";
-                    throw;
+                    _unitSymbol = "m";
                 }
 
-                
+                #endregion
             }
-#endregion
         }
     }
 }

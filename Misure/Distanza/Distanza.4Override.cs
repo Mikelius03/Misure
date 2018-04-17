@@ -1,11 +1,13 @@
-﻿namespace Misure
+﻿using System;
+
+namespace Misure
 {
     namespace Conversioni
     {
-        public partial class Temperature : IMisure
+        public partial class Distanza : IMisure
         {
             /// <summary>
-            /// Override del metodo ToString()
+            /// Ovveride del metodo ToString()
             /// </summary>
             /// <returns>Stringa riferita all'oggetto instanziato</returns>
             public override string ToString()

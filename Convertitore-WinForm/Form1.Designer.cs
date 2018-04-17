@@ -50,7 +50,7 @@
             this.panelOutput.Location = new System.Drawing.Point(415, 136);
             this.panelOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelOutput.Name = "panelOutput";
-            this.panelOutput.Size = new System.Drawing.Size(500, 539);
+            this.panelOutput.Size = new System.Drawing.Size(662, 539);
             this.panelOutput.TabIndex = 41;
             // 
             // label1
@@ -58,7 +58,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(415, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(500, 99);
+            this.label1.Size = new System.Drawing.Size(662, 99);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tabella Conversione";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,10 +182,6 @@
             this.CmbSelMisure.Font = new System.Drawing.Font("Constantia", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbSelMisure.ForeColor = System.Drawing.Color.Maroon;
             this.CmbSelMisure.FormattingEnabled = true;
-            this.CmbSelMisure.Items.AddRange(new object[] {
-            "Temperatura",
-            "Pressione",
-            "Distanza"});
             this.CmbSelMisure.Location = new System.Drawing.Point(37, 59);
             this.CmbSelMisure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CmbSelMisure.MaxDropDownItems = 16;
@@ -210,7 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(951, 716);
+            this.ClientSize = new System.Drawing.Size(1115, 716);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbSelMisure);

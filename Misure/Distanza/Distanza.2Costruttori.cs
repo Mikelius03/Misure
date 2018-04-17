@@ -1,26 +1,22 @@
 ﻿using System;
-/// <summary>
-/// 
-/// </summary>
+using System.Windows.Forms;
+
 namespace Misure
-{   
-    /// <summary>
-    ///     
-    /// </summary>
+{
     namespace Conversioni
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <seealso cref="Misure.Conversioni.IMisure" />
-        public partial class Temperature : IMisure
+        /**
+         * \class Distanza 
+         */
+        public partial class Distanza : IMisure
         {
             #region Costruttori
+
             /// <summary>
             /// Costruttore Generico
             /// Crea un oggetto del valore [0.0 K]
             /// </summary>
-            public Temperature()
+            public Distanza()
             {
                 _value = 0.0;
                 _unitSymbol = "k";
@@ -31,7 +27,7 @@ namespace Misure
             /// e come valore il relativo valore Assoluto
             /// </summary>
             /// <param name="simb">Simbolo Scala Termometrica</param>
-            public Temperature(string simb)
+            public Distanza(string simb)
             {
                 try
                 {
@@ -42,6 +38,7 @@ namespace Misure
                 {
                     _value = 0.0;
                     _unitSymbol = "k";
+                    MessageBox.Show("Simbolo Sconosciuto, l'oggetto sara instanziato a 0.0 k");
                 }
             }
 
@@ -50,7 +47,7 @@ namespace Misure
             /// e con "k" come Scala Termometrica
             /// </summary>
             /// <param name="value">Valore della Temperatura</param>
-            public Temperature(double value)
+            public Distanza(double value)
             {
                 if (value >= 0.0) // Maggiore dello Zero kelvin
                 {
@@ -69,7 +66,7 @@ namespace Misure
             /// </summary>
             /// <param name="simb">Simbolo dell'unita'</param>
             /// <param name="valueTemp">Valore della temperatura</param>
-            public Temperature(string simb, double valueTemp)
+            public Distanza(string simb, double valueTemp)
             {
                 try
                 {
@@ -91,9 +88,8 @@ namespace Misure
                     throw;
                 }
 
-                
+                #endregion
             }
-#endregion
         }
     }
 }

@@ -2,8 +2,6 @@
 {
     namespace AbsoluteValue
     {
-
-
         /// <summary>
         /// Piccola Classe che contiene i valori minimi di temperatura per ciascuna scala Termometrica. 
         /// </summary>

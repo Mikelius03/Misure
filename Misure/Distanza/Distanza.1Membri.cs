@@ -3,18 +3,16 @@
 /// </summary>
 namespace Misure
 {
-    /// <summary>
-    /// 
-    /// </summary>
     namespace Conversioni
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <seealso cref="Misure.Conversioni.IMisure" />
-        public partial class Temperature : IMisure
+
+        /**
+             * \class Distanza
+             */
+        public partial class Distanza : IMisure
         {
             #region Campi
+
             #region static
             /// <summary>
             /// Matrice di Strighe contenente i nomi delle scale termometriche
@@ -62,6 +60,7 @@ namespace Misure
             public double[] UnitAbsValue { get => AbsValue; }
 
             #endregion
+
         }
     }
 }

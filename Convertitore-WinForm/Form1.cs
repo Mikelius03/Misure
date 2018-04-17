@@ -40,6 +40,7 @@ namespace ConvertitoreMisure
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            CmbSelMisure.Items.AddRange(Elementi.Text);
             CmbSelMisure.SelectedIndex = 0;
             ComboBoxInT.SelectedIndex = 0;
             valueInput.Text = "0";
@@ -51,13 +52,13 @@ namespace ConvertitoreMisure
         {
 
             Point inizioLbl1 = new Point(1, 32);
-            Size SizeControlLbl1 = new Size(105, 26);
+            Size SizeControlLbl1 = new Size(135, 26);
 
-            Point inizioTxtB = new Point(110, 32);
+            Point inizioTxtB = new Point(140, 32);
             Size SizeControlTxtB = new Size(140, 26);
 
-            Point inizioLbl2 = new Point(250, 32);
-            Size SizeControlLbl2 = new Size(40, 26);
+            Point inizioLbl2 = new Point(285, 32);
+            Size SizeControlLbl2 = new Size(100, 26);
             for (int ii = 0; ii < ObjMisure.UnitSymbol.Length; ii++)
             {
                 string NameControlLbl1 = "lbl" + i.ToString() + ObjMisure.UnitName[ii];
@@ -113,7 +114,7 @@ namespace ConvertitoreMisure
 
         private void CmbSelMisure1_IndexChanged(object sender, EventArgs e)
         {
-            ObjMisure = Scelta(CmbSelMisure.SelectedIndex);
+            ObjMisure = Elementi.Scelta(CmbSelMisure.SelectedIndex) ;
 
             /// Setto la ComboBoxInT
             ComboBoxInT.Items.Clear();
@@ -198,18 +199,6 @@ namespace ConvertitoreMisure
 
 
 
-        public IMisure Scelta(int val)
-        {
-            switch (val)
-            {
-                case 0:
-                    return new Temperature();
-                case 1:
-                    return new Pressione();
-                default:
-                    // return new Dist(); ;
-                    return null;
-            }
-        }
+
     }
 }

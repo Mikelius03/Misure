@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ConvertitoreMisure
@@ -16,9 +17,10 @@ namespace ConvertitoreMisure
             lbl.Location = Coordinate;
             lbl.Size = Dimensioni;
             lbl.Anchor = 0;
-            
+            lbl.Click+=new System.EventHandler(myEventHandler);
             return lbl;
         }
+
 
 
         TextBox AddTextBox(string Nome, Point Coordinate, Size Dimensioni, string testo)
@@ -32,8 +34,21 @@ namespace ConvertitoreMisure
             TxtB.Location = Coordinate;
             TxtB.Size = Dimensioni;
             TxtB.Anchor = 0;
-            
+            TxtB.Click += new System.EventHandler(myEventHandler);
+
             return TxtB;
+        }
+
+        private void myEventHandler(object sender, EventArgs e)
+        {
+            if (sender is Label clickedLabel)
+            {
+                int index = Array.IndexOf(ObjMisure.UnitSymbol, clickedLabel.Text);
+                if (index >= 0)
+                {
+                    Clipboard.SetText(result[index].ToString() + " " + clickedLabel.Text);
+                }
+            }
         }
     }
 }
