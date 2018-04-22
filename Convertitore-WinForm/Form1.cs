@@ -1,5 +1,6 @@
-﻿using Misure.Conversioni;
+﻿using Physics.PhysicalQuantities;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,7 +9,6 @@ namespace ConvertitoreMisure
     public partial class Form1 : Form
     {
         #region Variabili
-
         /// <summary>Nome dell' unita' di misura in Input</summary>
         private string NameUnitIn;
 
@@ -19,20 +19,20 @@ namespace ConvertitoreMisure
         private double ValueMeasure;
 
         // Oggetto per la conversione
-        IMisure ObjMisure;
+        IPhysical ObjMisure;
 
-        /************************************************************************************/
-        private string testoTextBox;
-        /// <summary>Array di double contenenti tutte le conversioni</summary>
+        /// <summary>Array di double contenenti tutte le PhysicalQuantities</summary>
         private double[] result;
 
         //indice per i vari foreach
         private int i = 0;
-
         #endregion
+        int index;
 
-        #region MetodiDellaForm
-
+        #region MetodiDellaForm        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Form1"/> class.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -40,17 +40,25 @@ namespace ConvertitoreMisure
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CmbSelMisure.Items.AddRange(Elementi.Text);
+            CmbSelMisure.Items.AddRange(ItemsPQ.NameOfPQ);
             CmbSelMisure.SelectedIndex = 0;
             ComboBoxInT.SelectedIndex = 0;
             valueInput.Text = "0";
+
+            MessageBox.Show(ObjMisure.MeasurementName);
+            MessageBox.Show(ObjMisure.MeasurementSymbol);
+
+            ValueToolTip.SetToolTip(valueInput, "Inserire valore della misura");
+            ScalaToolTip.SetToolTip(ComboBoxInT, "Scegliere l'unità di misura della grandezza da misurare");
+            GrandezzaToolTip.SetToolTip(CmbSelMisure, "Scegliere la grandezza fisica da convertire");
+            ToolTipMeasureIn.SetToolTip(LblConversione, "Doppio Click per copiare l'elemento");
+
         }
         #endregion
 
         #region MetodiDeiPanel
         private void IniPanelOutput()
         {
-
             Point inizioLbl1 = new Point(1, 32);
             Size SizeControlLbl1 = new Size(135, 26);
 
@@ -68,8 +76,11 @@ namespace ConvertitoreMisure
                 Label lbl1 = AddLabel(NameControlLbl1, inizioLbl1, SizeControlLbl1, ObjMisure.UnitName[ii], ContentAlignment.MiddleRight);
                 TextBox tex = AddTextBox(NameControlTxt, inizioTxtB, SizeControlTxtB, "");
                 Label lbl2 = AddLabel(NameControlLbl2, inizioLbl2, SizeControlLbl2, ObjMisure.UnitSymbol[ii], ContentAlignment.MiddleLeft);
+                lblUnitToolTip.SetToolTip(lbl1, "Clicca una volta per copiare il nome dell'unità");
                 this.panelOutput.Controls.Add(lbl1);
+                txtBConvToolTip.SetToolTip(tex, "DoppioClick per copiare il valore");
                 this.panelOutput.Controls.Add(tex);
+                simbConvToolTip.SetToolTip(lbl2, "Clik per copiare solo il simbolo \nDoppioclick per copiare valore e simbolo!");
                 this.panelOutput.Controls.Add(lbl2);
                 inizioLbl1.Offset(0, 38);
                 inizioTxtB.Offset(0, 38);
@@ -78,17 +89,10 @@ namespace ConvertitoreMisure
         }
         private void EnabePanel(Panel MyPanel)
         {
-            if (MyPanel.Enabled == false)
+            MyPanel.Enabled = true;
+            foreach (Control item in MyPanel.Controls)
             {
-                MyPanel.Enabled = true;
-                foreach (Control item in MyPanel.Controls)
-                {
-                    item.Enabled = true;
-                }
-            }
-            else
-            {
-                // MyPanel.Enabled = false;
+                item.Enabled = true;
             }
         }
         private void ClearPanel(Panel MyPanel)
@@ -102,19 +106,27 @@ namespace ConvertitoreMisure
         /// <summary>
         /// Verifica che il testo della TextBox sia un numero
         /// </summary>
-        /// <param name="TextNumeric">Testo della TextBox</param>
+        /// <param name="testoTextBox">Testo della TextBox</param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException">Eccezione in CheckInputValue</exception>
         private bool CheckInputValue(string testoTextBox)
         {
             testoTextBox = testoTextBox.Replace('.', ',');
-            //Verifico che il dato nella TextBox sia un double
-            return Double.TryParse(testoTextBox, out ValueMeasure);
+            if (Double.TryParse(testoTextBox, out ValueMeasure))
+            {
+                if (ValueMeasure >= ObjMisure.UnitAbsValue[ComboBoxInT.SelectedIndex])
+                    return true;
+            }
+            return false;
         }
 
+        /// <summary>
+        /// Handles the IndexChanged event of the CmbSelMisure1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CmbSelMisure1_IndexChanged(object sender, EventArgs e)
         {
-            ObjMisure = Elementi.Scelta(CmbSelMisure.SelectedIndex) ;
+            ObjMisure = ItemsPQ.ChoosePQ(CmbSelMisure.SelectedIndex);
 
             /// Setto la ComboBoxInT
             ComboBoxInT.Items.Clear();
@@ -130,12 +142,13 @@ namespace ConvertitoreMisure
 
             // Svuoto il panelOutpu (Nel caso fosse già stato usato)
             ClearPanel(panelOutput);
+
         }
 
         private void ComboBoxInT_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            int index = ComboBoxInT.SelectedIndex;
+            index = ComboBoxInT.SelectedIndex;
             NameUnitIn = ComboBoxInT.SelectedItem.ToString();
             SimbUnitIn = ObjMisure.UnitSymbol[index];
             LblConversione.Text = valueInput.Text + " " + SimbUnitIn;
@@ -144,28 +157,30 @@ namespace ConvertitoreMisure
         #endregion
 
         #region MetodiDelButton
+
         private void BtnConvert_Click(object sender, EventArgs e)
         {
+
             if (!CheckInputValue(valueInput.Text))
             {
-                MessageBox.Show("Input non corretto");
+                ErroreToolTip.Show("Inserire un numero maggiore di "
+                    + ObjMisure.UnitAbsValue[ComboBoxInT.SelectedIndex].ToString(), valueInput);
                 valueInput.Clear();
                 ComboBoxInT.Text = "";
-          //      MostraConversioni(null);
                 return;
             }
 
-            // Imposto l'instanza creata con la misurazione da convertire
-            ObjMisure.ImpostaObject(SimbUnitIn, ValueMeasure);
+            // Imposto l'istanza creata con la misurazione da convertire
+            ObjMisure.RedefineObject(SimbUnitIn, ValueMeasure);
 
-            result = new double[8];
+            result = new double[8] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
             i = 0;
 
             foreach (string simbol in ObjMisure.UnitSymbol)
             {
-                if (i < 8)
+                if (i <= 8)
                 {
-                    result[i++] = Math.Round((ObjMisure).ValueMisureToMisure(simbol), 3);
+                    result[i++] = Math.Round(ObjMisure.ValueUnitToUnit(simbol),(int)numericUpDown2.Value);
                 }
             }
             MostraConversioni(result);
@@ -174,11 +189,19 @@ namespace ConvertitoreMisure
 
         private void MostraConversioni(double[] result)
         {
-
             ClearPanel(panelOutput);
             EnabePanel(panelOutput);
             IniPanelOutput();
-
+            foreach (object tooltip in panelOutput.Controls)
+            {
+                if (tooltip is ToolTip MyTooltip)
+                {
+                    MyTooltip.AutomaticDelay = 300;
+                    MyTooltip.AutoPopDelay = 1500;
+                    MyTooltip.InitialDelay = 300;
+                    MyTooltip.ReshowDelay = 60;
+                }
+            }
 
             i = 0;
             foreach (Control txb in panelOutput.Controls)
@@ -193,12 +216,31 @@ namespace ConvertitoreMisure
                         txb.Text = "0.0";
                     }
             }
-
         }
 
+        private void MouseoubleClick(object sender, MouseEventArgs e)
+        {
+            if (sender is Control clickControl)
+                CopiaTesto(clickControl);
+        }
 
-
-
-
+        private void Form1_FormClosed(Object sender, CancelEventArgs e)
+        {
+            const string message =
+        "Sei sicuro di voler uscire dal programma?";
+            const string caption = "Chiusura Programma";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo);
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                // cancel the closure of the form.
+                e.Cancel = true;
+            }
+            else
+            {
+                Clipboard.Clear();
+            }
+        }
     }
 }

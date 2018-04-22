@@ -1,6 +1,11 @@
-﻿namespace ConvertitoreMisure
-{
+﻿using System.ComponentModel;
 
+namespace ConvertitoreMisure
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class Form1
     {
         /// <summary>
@@ -27,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelOutput = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConvert = new System.Windows.Forms.Button();
@@ -40,7 +46,20 @@
             this.ComboBoxInT = new System.Windows.Forms.ComboBox();
             this.CmbSelMisure = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.ValueToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ScalaToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.GrandezzaToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ErroreToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ToolTipMeasureIn = new System.Windows.Forms.ToolTip(this.components);
+            this.lblUnitToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.txtBConvToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.simbConvToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.panelInput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelOutput
@@ -104,19 +123,19 @@
             this.lblValueMisura.Name = "lblValueMisura";
             this.lblValueMisura.Size = new System.Drawing.Size(340, 29);
             this.lblValueMisura.TabIndex = 12;
-            this.lblValueMisura.Text = "Misura da Convertire";
+            this.lblValueMisura.Text = "Valore da convertire";
             this.lblValueMisura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblConversione
             // 
             this.LblConversione.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblConversione.ForeColor = System.Drawing.Color.Maroon;
-            this.LblConversione.Location = new System.Drawing.Point(4, 332);
+            this.LblConversione.Location = new System.Drawing.Point(47, 332);
             this.LblConversione.Name = "LblConversione";
-            this.LblConversione.Size = new System.Drawing.Size(338, 101);
+            this.LblConversione.Size = new System.Drawing.Size(251, 57);
             this.LblConversione.TabIndex = 11;
-            this.LblConversione.Text = "Valore da Convertire";
             this.LblConversione.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblConversione.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.MouseoubleClick);
             // 
             // label3
             // 
@@ -145,9 +164,9 @@
             this.labComboIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labComboIn.Location = new System.Drawing.Point(83, 31);
             this.labComboIn.Name = "labComboIn";
-            this.labComboIn.Size = new System.Drawing.Size(171, 29);
+            this.labComboIn.Size = new System.Drawing.Size(166, 29);
             this.labComboIn.TabIndex = 8;
-            this.labComboIn.Text = "Scala di Input";
+            this.labComboIn.Text = "Unità di Input";
             // 
             // valueInput
             // 
@@ -197,9 +216,106 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(32, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(317, 29);
+            this.label4.Size = new System.Drawing.Size(212, 29);
             this.label4.TabIndex = 40;
-            this.label4.Text = "Scegli la grandezza fisica:";
+            this.label4.Text = "Grandezza fisica:";
+            // 
+            // ValueToolTip
+            // 
+            this.ValueToolTip.AutomaticDelay = 300;
+            this.ValueToolTip.AutoPopDelay = 1500;
+            this.ValueToolTip.InitialDelay = 350;
+            this.ValueToolTip.IsBalloon = true;
+            this.ValueToolTip.ReshowDelay = 60;
+            this.ValueToolTip.ToolTipTitle = "2";
+            this.ValueToolTip.UseAnimation = false;
+            this.ValueToolTip.UseFading = false;
+            // 
+            // ScalaToolTip
+            // 
+            this.ScalaToolTip.AutomaticDelay = 100;
+            this.ScalaToolTip.AutoPopDelay = 2000;
+            this.ScalaToolTip.InitialDelay = 350;
+            this.ScalaToolTip.IsBalloon = true;
+            this.ScalaToolTip.ReshowDelay = 20;
+            // 
+            // GrandezzaToolTip
+            // 
+            this.GrandezzaToolTip.AutomaticDelay = 100;
+            this.GrandezzaToolTip.AutoPopDelay = 2000;
+            this.GrandezzaToolTip.InitialDelay = 1000;
+            this.GrandezzaToolTip.IsBalloon = true;
+            this.GrandezzaToolTip.ReshowDelay = 20;
+            // 
+            // ErroreToolTip
+            // 
+            this.ErroreToolTip.AutomaticDelay = 100;
+            this.ErroreToolTip.AutoPopDelay = 2000;
+            this.ErroreToolTip.InitialDelay = 10;
+            this.ErroreToolTip.IsBalloon = true;
+            this.ErroreToolTip.ReshowDelay = 100;
+            // 
+            // ToolTipMeasureIn
+            // 
+            this.ToolTipMeasureIn.AutomaticDelay = 300;
+            this.ToolTipMeasureIn.IsBalloon = true;
+            // 
+            // lblUnitToolTip
+            // 
+            this.lblUnitToolTip.AutomaticDelay = 300;
+            this.lblUnitToolTip.AutoPopDelay = 3000;
+            this.lblUnitToolTip.InitialDelay = 350;
+            this.lblUnitToolTip.ReshowDelay = 60;
+            // 
+            // txtBConvToolTip
+            // 
+            this.txtBConvToolTip.AutomaticDelay = 300;
+            this.txtBConvToolTip.AutoPopDelay = 1500;
+            this.txtBConvToolTip.InitialDelay = 300;
+            this.txtBConvToolTip.IsBalloon = true;
+            this.txtBConvToolTip.ReshowDelay = 60;
+            // 
+            // simbConvToolTip
+            // 
+            this.simbConvToolTip.AutomaticDelay = 300;
+            this.simbConvToolTip.AutoPopDelay = 1500;
+            this.simbConvToolTip.InitialDelay = 300;
+            this.simbConvToolTip.IsBalloon = true;
+            this.simbConvToolTip.ReshowDelay = 60;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(0, 0);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown1.TabIndex = 43;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(1018, 12);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(85, 26);
+            this.numericUpDown2.TabIndex = 44;
+            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(806, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(206, 20);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Numeri Cifre Decimali (0-15)";
             // 
             // Form1
             // 
@@ -207,6 +323,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1115, 716);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbSelMisure);
@@ -217,26 +336,39 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Convertitore 2.0";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelInput.ResumeLayout(false);
             this.panelInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         private System.Windows.Forms.Panel panelOutput;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.Panel panelInput;
+        private System.Windows.Forms.ComboBox ComboBoxInT;
+        private System.Windows.Forms.ComboBox CmbSelMisure;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblConversione;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labComboIn;
-        private System.Windows.Forms.TextBox valueInput;
-        private System.Windows.Forms.ComboBox ComboBoxInT;
-        private System.Windows.Forms.ComboBox CmbSelMisure;
         private System.Windows.Forms.Label lblValueMisura;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnConvert;
+        private System.Windows.Forms.TextBox valueInput;
+        private System.Windows.Forms.ToolTip ValueToolTip;
+        private System.Windows.Forms.ToolTip ScalaToolTip;
+        private System.Windows.Forms.ToolTip GrandezzaToolTip;
+        private System.Windows.Forms.ToolTip ErroreToolTip;
+        private System.Windows.Forms.ToolTip ToolTipMeasureIn;
+        private System.Windows.Forms.ToolTip lblUnitToolTip;
+        private System.Windows.Forms.ToolTip txtBConvToolTip;
+        private System.Windows.Forms.ToolTip simbConvToolTip;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label5;
     }
 }

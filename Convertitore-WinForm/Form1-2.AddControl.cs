@@ -17,13 +17,12 @@ namespace ConvertitoreMisure
             lbl.Location = Coordinate;
             lbl.Size = Dimensioni;
             lbl.Anchor = 0;
-            lbl.Click+=new System.EventHandler(myEventHandler);
+            lbl.MouseClick += new MouseEventHandler(MyEventHandler2);
+
+            lbl.MouseDoubleClick += new MouseEventHandler(MyEventHandler);
             return lbl;
         }
-
-
-
-        TextBox AddTextBox(string Nome, Point Coordinate, Size Dimensioni, string testo)
+        public TextBox AddTextBox(string Nome, Point Coordinate, Size Dimensioni, string testo)
         {
             TextBox TxtB = new TextBox();
             TxtB.Name = Nome;
@@ -34,12 +33,28 @@ namespace ConvertitoreMisure
             TxtB.Location = Coordinate;
             TxtB.Size = Dimensioni;
             TxtB.Anchor = 0;
-            TxtB.Click += new System.EventHandler(myEventHandler);
+            TxtB.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(MyEventHandler2);
 
             return TxtB;
         }
 
-        private void myEventHandler(object sender, EventArgs e)
+
+        /// <summary>
+        /// Gestore per l'evento click sul simbolo dell'unità
+        /// </summary>
+        private void MyEventHandler(object sender, MouseEventArgs e)
+        {
+            if (sender is Label clickedLabel)
+            {
+                int index = Array.IndexOf(ObjMisure.UnitSymbol, clickedLabel.Text);
+                if (index >= 0)
+                {
+                    Clipboard.SetText(result[index].ToString() + " " + clickedLabel.Text);
+                }
+            }
+
+        }
+        private void MyEventHandler2(object sender, MouseEventArgs e)
         {
             if (sender is Label clickedLabel)
             {
@@ -50,5 +65,17 @@ namespace ConvertitoreMisure
                 }
             }
         }
+
+
+        private void CopiaTesto(Control controls)
+        {
+            Clipboard.SetText(controls.Text);
+
+            if (controls is TextBox clickedTextBox)
+            {
+                clickedTextBox.SelectAll();
+            }
+        }
+
     }
 }
