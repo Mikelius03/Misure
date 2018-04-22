@@ -1,0 +1,845 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Physics</name>
+    </assembly>
+    <members>
+        <member name="T:Physics.AbsoluteValue.AbsoluteTemp">
+            <summary>
+            Class that contains the minimum temperature values ​​for each Thermometric scale. 
+            </summary>
+        </member>
+        <member name="T:Physics.PhysicalQuantities.Distance">
+            <summary>
+            Class that manages the Distance
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Distance
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Distance
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Distance
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Distance
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Distance.NameUnit">
+            <summary>
+            Array containing the names of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Distance.SimbUnit">
+            <summary>
+            Array containing the units of measurement of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Distance.AbsValue">
+            <summary>
+            Array containing the lower limits of the thermometric scales
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.MeasurementName">
+            <summary>
+            Gets the name of the measurement.
+            </summary>
+            <value>
+            The name of the measurement.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.MeasurementSymbol">
+            <summary>
+            Gets the measurement symbol.
+            </summary>
+            <value>
+            The measurement symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.Unit_Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.Unit_Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.Unit_Symbol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.UnitName">
+            <summary>
+            Gets the name of the unit.
+            </summary>
+            <value>
+            The name of the unit.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.UnitSymbol">
+            <summary>
+            Gets the unit symbol.
+            </summary>
+            <value>
+            The unit symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Distance.UnitAbsValue">
+            <summary>
+            Gets the unit abs value.
+            </summary>
+            <value>
+            The unit abs value.
+            </value>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.#ctor">
+            <summary>
+            Generic Constructors
+            Initializes a new instance whit value and symbol [0.0 K]
+            </summary>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of object whit symbol \"simb\" 
+            and as its value the relative Absolute value
+            </summary>
+            <param name="simb">Thermometric Scale Symbol</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" 
+            and with \"k\" (meters) as a Thermometric Scale
+            </summary>
+            <param name="value">Distance value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.#ctor(System.String,System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" and \"symb\" as a thermometric scale
+            </summary>
+            <param name="simb">Symbol of unity</param>
+            <param name="valueTemp">Distance value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.CheckUnitName(System.String)">
+            <summary>
+            Verify that the symbol is a Symbol of the selected unit of measurement
+            </summary>
+            <param name="simb">Symbol of the unit of measurement to be verified</param>
+            <returns>true if the symbol is valid, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ValidateValue(System.String,System.Double)">
+            <summary>
+            Verify that the measurement value is in accordance with the unit
+            </summary>
+            <param name="Simb">Symbol of the unit of measurement</param>
+            <param name="value">Value of the measure</param>
+            <returns>true if the value is allowed, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ValueToUnit(System.String)">
+            <summary>
+            Converts the value of meters to \"unitSimbol\"
+            </summary>
+            <returns>value in degrees \"unitSimbol\"</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ValueFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to meters
+            </summary>
+            <returns>value of degree meters</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ObjectToUnit(System.String)">
+            <summary>
+            Converts the value of meters to \"unitSimbol\"
+            </summary>
+            <returns>New Instance in \"UnitSimbol\" degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ObjectFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to meters
+            </summary>
+            <returns>New Instance in meters degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ObjectUnitToUnit(System.String)">
+            <summary>
+            Converts a Distance object to the chosen thermometric scale
+            </summary>
+            <param name="UnitSimbOut">Output thermometer scale symbol</param>
+            <returns>New instance of Distance</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ValueUnitToUnit(System.String)">
+            <summary>
+            Values the unit to unit.
+            </summary>
+            <param name="UnitSimbOut">The unit simb out.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.RedefineObject(System.String,System.Double)">
+            <summary>
+            Redefines the object.
+            </summary>
+            <param name="symbol">Symbol of the new unit</param>
+            <param name="value">value of the new unit</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Distance.ToString">
+            <summary>
+            Override of the method ToString()
+            </summary>
+            <returns>String referred to the instantiated object</returns>
+        </member>
+        <member name="T:Physics.PhysicalQuantities.Energy">
+            <summary>
+            Class that manages the Energy
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Energy
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Energy
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Energy
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Energy
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Energy.NameUnit">
+            <summary>
+            Array containing the names of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Energy.SimbUnit">
+            <summary>
+            Array containing the units of measurement of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Energy.AbsValue">
+            <summary>
+            Array containing the lower limits of the thermometric scales
+            </summary>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.#ctor">
+            <summary>
+            Generic Constructors
+            Initializes a new instance whit value and symbol [0.0 K]
+            </summary>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of object whit symbol \"simb\" 
+            and as its value the relative Absolute value
+            </summary>
+            <param name="simb">Thermometric Scale Symbol</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" 
+            and with \"k\" (kelvin) as a Thermometric Scale
+            </summary>
+            <param name="value">Energy value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.#ctor(System.String,System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" and \"symb\" as a thermometric scale
+            </summary>
+            <param name="simb">Symbol of unity</param>
+            <param name="valueTemp">Energy value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.CheckUnitName(System.String)">
+            <summary>
+            Verify that the symbol is a Symbol of the selected unit of measurement
+            </summary>
+            <param name="simb">Symbol of the unit of measurement to be verified</param>
+            <returns>true if the symbol is valid, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ValidateValue(System.String,System.Double)">
+            <summary>
+            Verify that the measurement value is in accordance with the unit
+            </summary>
+            <param name="Simb">Symbol of the unit of measurement</param>
+            <param name="value">Value of the measure</param>
+            <returns>true if the value is allowed, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ValueToUnit(System.String)">
+            <summary>
+            Converts the value of kelvin to \"unitSimbol\"
+            </summary>
+            <returns>value in degrees \"unitSimbol\"</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ValueFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to Joule
+            </summary>
+            <returns>value of Joule</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ObjectToUnit(System.String)">
+            <summary>
+            Converts the value of kelvin to \"unitSimbol\"
+            </summary>
+            <returns>New Instance in \"UnitSimbol\" degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ObjectFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to Kelvin
+            </summary>
+            <returns>New Instance in kelvin degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ObjectUnitToUnit(System.String)">
+            <summary>
+            Converts a Energy object to the chosen thermometric scale
+            </summary>
+            <param name="UnitSimbOut">Output thermometer scale symbol</param>
+            <returns>New instance of Energy</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ValueUnitToUnit(System.String)">
+            <summary>
+            Values the unit to unit.
+            </summary>
+            <param name="UnitSimbOut">The unit simb out.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.RedefineObject(System.String,System.Double)">
+            <summary>
+            Redefines the object.
+            </summary>
+            <param name="symbol">Symbol of the new unit</param>
+            <param name="value">value of the new unit</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Energy.ToString">
+            <summary>
+            Override of the method ToString()
+            </summary>
+            <returns>String referred to the instantiated object</returns>
+        </member>
+        <member name="T:Physics.PhysicalQuantities.IPhysical">
+            <summary>
+            \Interface IPhysical
+            \brief Interface for physical quantities management
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.MeasurementName">
+            <summary>
+            Gets the name of the measurement.
+            </summary>
+            <value>
+            The name of the measurement.
+            </value>
+            
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.MeasurementSymbol">
+            <summary>
+            Gets the measurement symbol.
+            </summary>
+            <value>
+            The measurement symbol.
+            </value>
+            
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.Unit_Value">
+            <summary>
+            Gets the unit value.
+            </summary>
+            <value>
+            The unit value.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.Unit_Name">
+            <summary>
+            Gets the name of the unit.
+            </summary>
+            <value>
+            The name of the unit.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.Unit_Symbol">
+            <summary>
+            Gets the unit symbol.
+            </summary>
+            <value>
+            The unit symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.UnitName">
+            <summary>
+            Gets the name of the unit.
+            </summary>
+            <value>
+            The name of the unit.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.UnitSymbol">
+            <summary>
+            Gets the unit symbol.
+            </summary>
+            <value>
+            The unit symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.IPhysical.UnitAbsValue">
+            <summary>
+            Gets the unit abs value.
+            </summary>
+            <value>
+            The unit abs value.
+            </value>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.CheckUnitName(System.String)">
+            <summary>
+            Check that the \"simb\" is a symbol of the selected unit of measurement
+            </summary>
+            <param name="simb">Symbol of the unit of measurement to be verified</param>
+            <returns>true if the \"simb\" is valid, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ValidateValue(System.String,System.Double)">
+            <summary>
+            Verify that the measurement value is in accordance with the scale
+            </summary>
+            <param name="Simb">Symbol of the unit of measure</param>
+            <param name="value">Value of the measure</param>
+            <returns>true if the value is allowed, otherwise false </returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ValueToUnit(System.String)">
+            <summary>
+            Convert the instance in to the \"Simb\" unit
+            </summary>
+            <returns>value in \"Simb\" units</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ValueFromUnit">
+            <summary>
+            Convert the object to the reference unit
+            </summary>
+            <returns>value in reference unit</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ObjectToUnit(System.String)">
+            <summary>
+            Convert the instance in to the \"Simb\" unit
+            </summary>
+            <returns>New Instance in \"Simb\" units</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ObjectFromUnit">
+            <summary>
+            Convert the object to the reference unit
+            </summary>
+            <returns>New Instance in reference units</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ObjectUnitToUnit(System.String)">
+            <summary>
+            Convert an object to the chosen unit
+            </summary>
+            <param name="SimbOut">Symbol of the Output unit</param>
+            <returns></returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ValueUnitToUnit(System.String)">
+            <summary>
+            Convert a value to the chosen unit
+            </summary>
+            <param name="SimbOut">Symbol of the output unit</param>
+            <returns>value of the output unit</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.RedefineObject(System.String,System.Double)">
+            <summary>
+            Redefines the object.
+            </summary>
+            <param name="symbol">Symbol of the new unit</param>
+            <param name="value">value of the new unit</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.IPhysical.ToString">
+            <summary>
+            Ovveride of the method ToString()
+            </summary>
+            <returns>String referred to the instantiated object</returns>
+        </member>
+        <member name="T:Physics.PhysicalQuantities.Pressure">
+            <summary>
+            Class that manages the Pressure
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Pressure
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Pressure
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Pressure
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the Pressure
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Pressure.NameUnit">
+            <summary>
+            Array containing the names of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Pressure.SimbUnit">
+            <summary>
+            Array containing the units of measurement of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Pressure.AbsValue">
+            <summary>
+            Array containing the lower limits of the thermometric scales
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.MeasurementName">
+            <summary>
+            Gets the name of the measurement.
+            </summary>
+            <value>
+            The name of the measurement.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.MeasurementSymbol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.Unit_Value">
+            <summary>
+            Gets the unit value.
+            </summary>
+            <value>
+            The unit value.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.Unit_Name">
+            <summary>
+            Gets the name of the unit.
+            </summary>
+            <value>
+            The name of the unit.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.Unit_Symbol">
+            <summary>
+            Gets the unit symbol.
+            </summary>
+            <value>
+            The unit symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.UnitName">
+            <summary>
+            Gets the name of the unit.
+            </summary>
+            <value>
+            The name of the unit.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.UnitSymbol">
+            <summary>
+            Gets the unit symbol.
+            </summary>
+            <value>
+            The unit symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Pressure.UnitAbsValue">
+            <summary>
+            Gets the unit abs value.
+            </summary>
+            <value>
+            The unit abs value.
+            </value>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.#ctor">
+            <summary>
+            Generic Constructors
+            Initializes a new instance whit value and symbol [0.0 K]
+            </summary>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of object whit symbol \"simb\" 
+            and as its value the relative Absolute value
+            </summary>
+            <param name="simb">Thermometric Scale Symbol</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" 
+            and with \"k\" (kelvin) as a Thermometric Scale
+            </summary>
+            <param name="value">Pressure value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.#ctor(System.String,System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" and \"symb\" as a thermometric scale
+            </summary>
+            <param name="simb">Symbol of unity</param>
+            <param name="valueTemp">Pressure value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.CheckUnitName(System.String)">
+            <summary>
+            Verify that the symbol is a Symbol of the selected unit of measurement
+            </summary>
+            <param name="simb">Symbol of the unit of measurement to be verified</param>
+            <returns>true if the symbol is valid, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ValidateValue(System.String,System.Double)">
+            <summary>
+            Verify that the measurement value is in accordance with the unit
+            </summary>
+            <param name="Simb">Symbol of the unit of measurement</param>
+            <param name="value">Value of the measure</param>
+            <returns>true if the value is allowed, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ValueToUnit(System.String)">
+            <summary>
+            Converts the value of kelvin to \"unitSimbol\"
+            </summary>
+            <returns>value in degrees \"unitSimbol\"</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ValueFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to Kelvin
+            </summary>
+            <returns>value of degree Kelvin</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ObjectToUnit(System.String)">
+            <summary>
+            Converts the value of kelvin to \"unitSimbol\"
+            </summary>
+            <returns>New Instance in \"UnitSimbol\" degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ObjectFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to Kelvin
+            </summary>
+            <returns>New Instance in kelvin degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ObjectUnitToUnit(System.String)">
+            <summary>
+            Converts a Pressure object to the chosen thermometric scale
+            </summary>
+            <param name="UnitSimbOut">Output thermometer scale symbol</param>
+            <returns>New instance of Pressure</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ValueUnitToUnit(System.String)">
+            <summary>
+            Values the unit to unit.
+            </summary>
+            <param name="UnitSimbOut">The unit simb out.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.RedefineObject(System.String,System.Double)">
+            <summary>
+            Redefines the object.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Pressure.ToString">
+            <summary>
+            Override of the method ToString()
+            </summary>
+            <returns>String referred to the instantiated object</returns>
+        </member>
+        <member name="T:Physics.PhysicalQuantities.Temperature">
+            <summary>
+            Class that manages the temperature
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the temperature
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the temperature
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the temperature
+            </summary>
+            <seealso cref="T:Physics.PhysicalQuantities.IPhysical" />
+            <summary>
+            Class that manages the temperature
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Temperature.NameUnit">
+            <summary>
+            Array containing the names of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Temperature.SimbUnit">
+            <summary>
+            Array containing the units of measurement of the thermometric scales
+            </summary>
+        </member>
+        <member name="F:Physics.PhysicalQuantities.Temperature.AbsValue">
+            <summary>
+            Array containing the lower limits of the thermometric scales
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.MeasurementName">
+            <summary>
+            Gets the name of the measurement.
+            </summary>
+            <value>
+            The name of the measurement.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.MeasurementSymbol">
+            <summary>
+            Gets the measurement symbol.
+            </summary>
+            <value>
+            The measurement symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.Unit_Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.Unit_Name">
+            <summary>
+            Gets the name of the unit.
+            </summary>
+            <value>
+            The name of the unit.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.Unit_Symbol">
+            <summary>
+            Gets the unit symbol.
+            </summary>
+            <value>
+            The unit symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.UnitName">
+            <summary>
+            Gets the name of the unit.
+            </summary>
+            <value>
+            The name of the unit.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.UnitSymbol">
+            <summary>
+            Gets the unit symbol.
+            </summary>
+            <value>
+            The unit symbol.
+            </value>
+        </member>
+        <member name="P:Physics.PhysicalQuantities.Temperature.UnitAbsValue">
+            <summary>
+            Gets the unit abs value.
+            </summary>
+            <value>
+            The unit abs value.
+            </value>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.#ctor">
+            <summary>
+            Generic Constructors
+            Initializes a new instance whit value and symbol [0.0 K]
+            </summary>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of object whit symbol \"simb\" 
+            and as its value the relative Absolute value
+            </summary>
+            <param name="simb">Thermometric Scale Symbol</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" 
+            and with \"k\" (kelvin) as a Thermometric Scale
+            </summary>
+            <param name="value">Temperature value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.#ctor(System.String,System.Double)">
+            <summary>
+            Initializes a new instance with value \"value\" and \"symb\" as a thermometric scale
+            </summary>
+            <param name="simb">Symbol of unity</param>
+            <param name="valueTemp">Temperature value</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.CheckUnitName(System.String)">
+            <summary>
+            Verify that the symbol is a Symbol of the selected unit of measurement
+            </summary>
+            <param name="simb">Symbol of the unit of measurement to be verified</param>
+            <returns>true if the symbol is valid, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ValidateValue(System.String,System.Double)">
+            <summary>
+            Verify that the measurement value is in accordance with the unit
+            </summary>
+            <param name="Simb">Symbol of the unit of measurement</param>
+            <param name="value">Value of the measure</param>
+            <returns>true if the value is allowed, otherwise false</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ValueToUnit(System.String)">
+            <summary>
+            Converts the value of kelvin to \"unitSimbol\"
+            </summary>
+            <returns>value in degrees \"unitSimbol\"</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ValueFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to Kelvin
+            </summary>
+            <returns>value of degree Kelvin</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ObjectToUnit(System.String)">
+            <summary>
+            Converts the value of kelvin to \"unitSimbol\"
+            </summary>
+            <returns>New Instance in \"UnitSimbol\" degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ObjectFromUnit">
+            <summary>
+            Converts the value of \"unitSimbol\" to Kelvin
+            </summary>
+            <returns>New Instance in kelvin degrees</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ObjectUnitToUnit(System.String)">
+            <summary>
+            Converts a Temperature object to the chosen thermometric scale
+            </summary>
+            <param name="UnitSimbOut">Output thermometer scale symbol</param>
+            <returns>New instance of Temperature</returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ValueUnitToUnit(System.String)">
+            <summary>
+            Values the unit to unit.
+            </summary>
+            <param name="UnitSimbOut">The unit simb out.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.RedefineObject(System.String,System.Double)">
+            <summary>
+            Redefines the object.
+            </summary>
+            <param name="symbol">Symbol of the new unit</param>
+            <param name="value">value of the new unit</param>
+        </member>
+        <member name="M:Physics.PhysicalQuantities.Temperature.ToString">
+            <summary>
+            Override of the method ToString()
+            </summary>
+            <returns>String referred to the instantiated object</returns>
+        </member>
+    </members>
+</doc>

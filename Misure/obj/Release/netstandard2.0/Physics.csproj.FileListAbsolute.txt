@@ -1,0 +1,10 @@
+C:\Users\Michele\source\repos\Misure\Misure\obj\Release\netstandard2.0\Physics.csproj.CoreCompileInputs.cache
+C:\Users\Michele\source\repos\Misure\Misure\obj\Release\netstandard2.0\Physics.AssemblyInfoInputs.cache
+C:\Users\Michele\source\repos\Misure\Misure\obj\Release\netstandard2.0\Physics.AssemblyInfo.cs
+C:\Users\Michele\source\repos\Misure\Misure\obj\Release\netstandard2.0\Physics.csprojResolveAssemblyReference.cache
+C:\Users\Michele\source\repos\Misure\Misure\bin\Release\netstandard2.0\Physics.deps.json
+C:\Users\Michele\source\repos\Misure\Misure\bin\Release\netstandard2.0\Physics.dll
+C:\Users\Michele\source\repos\Misure\Misure\bin\Release\netstandard2.0\Physics.pdb
+C:\Users\Michele\source\repos\Misure\Misure\obj\Release\netstandard2.0\Physics.dll
+C:\Users\Michele\source\repos\Misure\Misure\obj\Release\netstandard2.0\Physics.pdb
+C:\Users\Michele\source\repos\Misure\Misure\bin\Release\netstandard2.0\Physics.xml

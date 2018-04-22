@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Physics</id>
+    <version>1.0.0</version>
+    <authors>Cannavo' Michele</authors>
+    <owners>Cannavo' Michele</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <copyright>Copyrigth (C) 2018 Cannavo' Michele</copyright>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Michele\source\repos\Misure\Misure\bin\Release\netstandard2.0\Physics.dll" target="lib\netstandard2.0\Physics.dll" />
+    <file src="C:\Users\Michele\source\repos\Misure\Misure\bin\Release\netstandard2.0\Physics.xml" target="lib\netstandard2.0\Physics.xml" />
+  </files>
+</package>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Convertitore-WinForm</name>
+    </assembly>
+    <members>
+        <member name="T:ConvertitoreMisure.Form1">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:System.Windows.Forms.Form" />
+        </member>
+        <member name="M:ConvertitoreMisure.Form1.MyEventHandler(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Gestore per l'evento click sul simbolo dell'unità
+            </summary>
+        </member>
+        <member name="F:ConvertitoreMisure.Form1.NameUnitIn">
+            <summary>Nome dell' unita' di misura in Input</summary>
+        </member>
+        <member name="F:ConvertitoreMisure.Form1.SimbUnitIn">
+            <summary>Simbolo dell' unita' di misura in Input</summary>
+        </member>
+        <member name="F:ConvertitoreMisure.Form1.ValueMeasure">
+            <summary>Valore dell' unita' di misura</summary>
+        </member>
+        <member name="F:ConvertitoreMisure.Form1.result">
+            <summary>Array di double contenenti tutte le PhysicalQuantities</summary>
+        </member>
+        <member name="M:ConvertitoreMisure.Form1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ConvertitoreMisure.Form1"/> class.
+            </summary>
+        </member>
+        <member name="M:ConvertitoreMisure.Form1.CheckInputValue(System.String)">
+            <summary>
+            Verifica che il testo della TextBox sia un numero
+            </summary>
+            <param name="testoTextBox">Testo della TextBox</param>
+            <returns></returns>
+        </member>
+        <member name="M:ConvertitoreMisure.Form1.CmbSelMisure1_IndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Handles the IndexChanged event of the CmbSelMisure1 control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:ConvertitoreMisure.Form1.components">
+            <summary>
+            Variabile di progettazione necessaria.
+            </summary>
+        </member>
+        <member name="M:ConvertitoreMisure.Form1.Dispose(System.Boolean)">
+            <summary>
+            Pulire le risorse in uso.
+            </summary>
+            <param name="disposing">ha valore true se le risorse gestite devono essere eliminate, false in caso contrario.</param>
+        </member>
+        <member name="M:ConvertitoreMisure.Form1.InitializeComponent">
+            <summary>
+            Metodo necessario per il supporto della finestra di progettazione. Non modificare
+            il contenuto del metodo con l'editor di codice.
+            </summary>
+        </member>
+        <member name="M:ConvertitoreMisure.Program.Main">
+            <summary>
+            Punto di ingresso principale dell'applicazione.
+            </summary>
+        </member>
+        <member name="T:Convertitore_WinForm.Properties.Resources">
+            <summary>
+              Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+            </summary>
+        </member>
+        <member name="P:Convertitore_WinForm.Properties.Resources.ResourceManager">
+            <summary>
+              Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+            </summary>
+        </member>
+        <member name="P:Convertitore_WinForm.Properties.Resources.Culture">
+            <summary>
+              Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+              ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+            </summary>
+        </member>
+    </members>
+</doc>

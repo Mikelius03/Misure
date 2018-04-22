@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Misure", "Misure\Misure.csproj", "{A876BB0A-0145-4038-B801-CC16D10AEFD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Physics", "Misure\Physics.csproj", "{A876BB0A-0145-4038-B801-CC16D10AEFD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convertitore-CSharp-WinForm", "Convertitore-WinForm\Convertitore-CSharp-WinForm.csproj", "{CCDBB051-1ABC-4DF2-AB50-6FCEAB0FE43A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convertitore-CSharp-WPF", "Convertitore-CSharp-WPF\Convertitore-CSharp-WPF.csproj", "{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}"
-EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Convertitore-VisualBasic-WinForm", "Convertitore-VisualBasic-WinForm\Convertitore-VisualBasic-WinForm.vbproj", "{E4BB6642-CC28-4791-9486-172D831EE76A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,22 +31,6 @@ Global
 		{CCDBB051-1ABC-4DF2-AB50-6FCEAB0FE43A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CCDBB051-1ABC-4DF2-AB50-6FCEAB0FE43A}.Release|x86.ActiveCfg = Release|Any CPU
 		{CCDBB051-1ABC-4DF2-AB50-6FCEAB0FE43A}.Release|x86.Build.0 = Release|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Debug|x86.Build.0 = Debug|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Release|x86.ActiveCfg = Release|Any CPU
-		{EFC60D74-5B23-42D6-B03F-B0A3B30D738B}.Release|x86.Build.0 = Release|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Debug|x86.Build.0 = Debug|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Release|x86.ActiveCfg = Release|Any CPU
-		{E4BB6642-CC28-4791-9486-172D831EE76A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

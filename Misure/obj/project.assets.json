@@ -183,9 +183,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Michele\\source\\repos\\Misure\\Misure\\Misure.csproj",
-      "projectName": "Misure",
-      "projectPath": "C:\\Users\\Michele\\source\\repos\\Misure\\Misure\\Misure.csproj",
+      "projectUniqueName": "C:\\Users\\Michele\\source\\repos\\Misure\\Misure\\Physics.csproj",
+      "projectName": "Physics",
+      "projectPath": "C:\\Users\\Michele\\source\\repos\\Misure\\Misure\\Physics.csproj",
       "packagesPath": "C:\\Users\\Michele\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Michele\\source\\repos\\Misure\\Misure\\obj\\",
       "projectStyle": "PackageReference",

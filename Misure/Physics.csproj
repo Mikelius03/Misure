@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>3.0.0.73</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Authors>Cannavo' Michele</Authors>
+    <Copyright>Copyrigth (C) 2018 Cannavo' Michele</Copyright>
+    <NeutralLanguage>en-001</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <DocumentationFile>bin\Release\netstandard2.0\Physics.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DocumentationFile>bin\Debug\netstandard2.0\Physics.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Doc\**" />
+    <Compile Remove="PhysicalQuantities\Length\**" />
+    <EmbeddedResource Remove="Doc\**" />
+    <EmbeddedResource Remove="PhysicalQuantities\Length\**" />
+    <None Remove="Doc\**" />
+    <None Remove="PhysicalQuantities\Length\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="MainPage.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PhysicalQuantities\Distance\" />
+  </ItemGroup>
+
+</Project>

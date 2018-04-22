@@ -5,3 +5,6 @@
 /.vs
 /Convertitore-VisualBasic-WinForm/obj
 /Convertitore-CSharp-WPF/obj
+/Misure/PhysicalQuantities
+/Misure/Doc
+/Convertitore-WinForm/Convertitore-CSharp-WinForm.csproj.user
